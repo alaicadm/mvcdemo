@@ -1,0 +1,55 @@
+﻿<Window x:Class="MVCDemo.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVCDemo"
+        mc:Ignorable="d"
+        Title="Main Menu" Height="450" Width="900" WindowStyle="None" Background="{x:Null}" WindowStartupLocation="CenterScreen">
+    
+    <materialDesign:Card UniformCornerRadius="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Background="{StaticResource PrimaryHueDarkBrush}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image Grid.ColumnSpan="2" Source="{StaticResource csharpIcon}" Height="55"/>
+
+                <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <!--<ColumnDefinition Width="auto"/>-->
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <ListView>
+                            <ListViewItem x:Name="lviCRUD" MouseUp="lvi_MouseUp" Foreground="White" Content="Records"/>
+                            <ListViewItem x:Name="lviHelp" MouseUp="lvi_MouseUp" Foreground="White" Content="Help"/>
+                            <ListViewItem x:Name="lviLogout" MouseUp="lvi_MouseUp" Foreground="White" Content="Logout"/>
+                        </ListView>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="35"/>
+                </Grid.RowDefinitions>
+                <Rectangle Fill="{StaticResource PrimaryHueDarkForegroundBrush}"/>
+                <TextBlock x:Name="txtTitleBlock" FontWeight="Bold" Margin="3" Text="HOME" Style="{StaticResource MaterialDesignBody1TextBlock}"/>
+                <Frame Grid.Row="1" x:Name="MainFrame" IsTabStop="False" NavigationUIVisibility="Hidden"/>
+            </Grid>
+        </Grid>
+    </materialDesign:Card>
+</Window>

@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\MVCDemo",
+    "\\MVCDemo\\Controllers",
+    "\\MVCDemo\\Models",
+    "\\MVCDemo\\View",
+    "\\MVCDemo\\Views",
+    "\\MVCDemo\\Views\\Forms"
+  ],
+  "SelectedNode": "\\MVCDemo\\Views\\Forms\\ContactCRUDWindow.xaml.cs",
+  "PreviewInSolutionExplorer": false
+}

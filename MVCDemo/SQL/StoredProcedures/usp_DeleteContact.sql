@@ -1,0 +1,24 @@
+IF EXISTS (SELECT * FROM sys.procedures WHERE name = 'usp_DeleteContact')
+	DROP PROCEDURE usp_DeleteContact
+GO
+
+CREATE PROCEDURE	usp_DeleteContact
+(
+	@UserId				INT
+)
+AS
+SET NOCOUNT OFF
+	
+	BEGIN TRY
+		BEGIN TRANSACTION 
+	
+				----ADD CREATEDBY and CREATEDATETIME(TIMESTAMP)
+					DELETE FROM	Contacts 
+					WHERE UserId = @UserId
+
+		COMMIT TRANSACTION
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRANSACTION
+	END CATCH
+GO
