@@ -114,13 +114,13 @@ namespace MVCDemo.Views.Forms {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.3.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.1.0")]
         public void InitializeComponent() {
             if (_contentLoaded) {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MVCDemo;component/views/forms/contactcrudwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MVCDemo;V1.0.0.0;component/views/forms/contactcrudwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Forms\ContactCRUDWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
@@ -130,7 +130,7 @@ namespace MVCDemo.Views.Forms {
         }
         
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.3.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.1.0")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]

@@ -23,6 +23,8 @@ namespace MVCDemo.Views.Pages
     {
         ContactsController controllerObj = new ContactsController();
         DataTable dtContacts,dt;
+        
+
         public BulkInsertPage()
         {
             InitializeComponent();
@@ -54,16 +56,25 @@ namespace MVCDemo.Views.Pages
                     DisplayRecord();
                 }
             }
-            else if(sender == btnSave)
+            else if (sender == btnUpdate)
             {
-                controllerObj.dtContactsForSaving = dtContacts;
-                if (controllerObj.BulkSave(controllerObj))
+                ContactBulkEditWindow crudEdit = new ContactBulkEditWindow();
+                crudEdit.ShowDialog();
+                if (crudEdit.DialogResult == true)
                 {
-                    MessageBox.Show("", "Succesfully Added!");
                     DisplayRecord();
-         
                 }
             }
+            /* else if(sender == btnSave)
+             {
+                 controllerObj.dtContactsForSaving = dtContacts;
+                 if (controllerObj.BulkSave(controllerObj))
+                 {
+                     MessageBox.Show("", "Succesfully Added!");
+                     DisplayRecord();
+
+                 }
+             }*/
         }
 
         private void DisplayRecord()
@@ -71,5 +82,8 @@ namespace MVCDemo.Views.Pages
             dt = controllerObj.GetContacts("");
             dgContacts.ItemsSource = dt.DefaultView;
         }
+
+       
+
     }
 }

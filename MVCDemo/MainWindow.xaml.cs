@@ -63,7 +63,7 @@ namespace MVCDemo
                 {
                     MainFrame.NavigationService.Navigated += NavServiceOnNavigated;
                     MainFrame.Navigate(new ContactPage());
-                    txtTitleBlock.Text = $"CREATE - UPDATE - VIEW CONTACT";
+                    txtTitleBlock.Text = "CONTACT RECORDS";
                     //MainFrame.NavigationService.RemoveBackEntry();
                 }
                 else if (sender == lviBulkInsert)

@@ -49,7 +49,7 @@
                 </Button.Content>
             </Button>
 
-            <DataGrid Grid.Row="7" x:Name="dgContacts" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dgContacts_SelectionChanged" Margin="10">
+            <DataGrid Grid.Row="7" x:Name="dgContacts" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dgContacts_SelectionChanged" Margin="10">
                 <DataGrid.Columns>
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>

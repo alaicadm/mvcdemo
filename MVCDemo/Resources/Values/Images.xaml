@@ -6,4 +6,7 @@
    
     <BitmapImage x:Key="csharpIcon"
                  UriSource="/MVCDemo;component/Resources/Images/c_sharp.png" />
+
+    <BitmapImage x:Key="contactIcon"
+                 UriSource="/MVCDemo;component/Resources/Images/contact-icon.png" />
 </ResourceDictionary>

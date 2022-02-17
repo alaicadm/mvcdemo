@@ -17,28 +17,55 @@
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Margin="10 0 0 0">
-            <Button x:Name="btnNew"  Click="Button_Click" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}">
-                <Button.Content>
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Add" Margin="0 5 0 0"/>
-                        <Label Content="NEW" Style="{StaticResource MaterialDesignLabel}" Foreground="White"/>
-                    </StackPanel>
-                </Button.Content>
-            </Button>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnNew" Grid.Column="0" Click="Button_Click" 
+                        Margin="0 0 5 0"
+                        Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Add" Margin="0 5 0 0"/>
+                            <Label Content="NEW" Style="{StaticResource MaterialDesignLabel}" Foreground="White"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="btnUpdate" Grid.Column="1" Click="Button_Click" 
+                        Margin="0 0 5 0"
+                        Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Pencil" Margin="0 5 0 0"/>
+                            <Label Content="EDIT" Style="{StaticResource MaterialDesignLabel}" Foreground="White"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="btnDel" Grid.Column="2" Click="Button_Click" 
+                        Margin="0 0 5 0"
+                        Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Trash" Margin="0 5 0 0"/>
+                            <Label Content="DELETE" Style="{StaticResource MaterialDesignLabel}" Foreground="White"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </Grid>
+            
         </StackPanel>
-        <DataGrid x:Name="dgContacts" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dgContacts_SelectionChanged" Grid.Row="1" Margin="10">
+        <DataGrid x:Name="dgContacts" IsReadOnly="True" CanUserAddRows="False" SelectionUnit="FullRow" AutoGenerateColumns="False" SelectionChanged="dgContacts_SelectionChanged" Grid.Row="1" Margin="10">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Visibility="Collapsed">
+                <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Background="{StaticResource MaterialDesignValidationErrorBrush}" Click="Remove_Click" BorderThickness="0">
-                                <Button.Content>
-                                    <StackPanel Orientation="Horizontal">
-                                        <materialDesign:PackIcon Kind="Trash" Margin="0 6 0 0"/>
-                                        <Label Content="Remove" Foreground="White"/>
-                                    </StackPanel>
-                                </Button.Content>
-                            </Button>
+                            <CheckBox
+                                x:Name="itemCheckBox" IsChecked="{Binding isChecked}"
+                                IsThreeState="False"
+                                Margin="0 8 0 0"
+                                 />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -50,6 +77,5 @@
                 <DataGridTextColumn Header="Phone Number" Binding="{Binding Mobile}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnSave" Click="Button_Click" Content="SAVE" Grid.Row="2" Width="150" HorizontalAlignment="Right" Margin="0 3 10 0"/>
-    </Grid>
+        </Grid>
 </Page>

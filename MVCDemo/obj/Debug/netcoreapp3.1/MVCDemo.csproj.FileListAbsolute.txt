@@ -78,6 +78,10 @@ D:\Users\reube\source\vs-repos\MVCDemo\MVCDemo\obj\Debug\netcoreapp3.1\MVCDemo.c
 D:\Users\reube\source\vs-repos\MVCDemo\MVCDemo\obj\Debug\netcoreapp3.1\MVCDemo.dll
 D:\Users\reube\source\vs-repos\MVCDemo\MVCDemo\obj\Debug\netcoreapp3.1\MVCDemo.pdb
 D:\Users\reube\source\vs-repos\MVCDemo\MVCDemo\obj\Debug\netcoreapp3.1\MVCDemo.genruntimeconfig.cache
+<<<<<<< HEAD
+D:\Users\reube\source\vs-repos\MVCDemo\MVCDemo\obj\Debug\netcoreapp3.1\Views\Forms\ContactBulkEditWindow.g.cs
+D:\Users\reube\source\vs-repos\MVCDemo\MVCDemo\obj\Debug\netcoreapp3.1\Views\Forms\ContactBulkEditWindow.baml
+=======
 C:\Users\Asus\source\repos\Collab_Project\mvcdemo\MVCDemo\obj\Debug\netcoreapp3.1\MVCDemo.dll
 C:\Users\Asus\source\repos\Collab_Project\mvcdemo\MVCDemo\obj\Debug\netcoreapp3.1\MVCDemo.pdb
 C:\Users\Asus\source\repos\Collab_Project\mvcdemo\MVCDemo\obj\Debug\netcoreapp3.1\MVCDemo.csprojAssemblyReference.cache
@@ -120,3 +124,4 @@ C:\Users\Asus\source\repos\Collab_Project\mvcdemo\MVCDemo\obj\Debug\netcoreapp3.
 C:\Users\Asus\source\repos\Collab_Project\mvcdemo\MVCDemo\obj\Debug\netcoreapp3.1\MVCDemo.csproj.CoreCompileInputs.cache
 C:\Users\Asus\source\repos\Collab_Project\mvcdemo\MVCDemo\obj\Debug\netcoreapp3.1\MVCDemo.csproj.CopyComplete
 C:\Users\Asus\source\repos\Collab_Project\mvcdemo\MVCDemo\obj\Debug\netcoreapp3.1\MVCDemo.genruntimeconfig.cache
+>>>>>>> b795ba4097b2565998455814ffd91b486e661c17

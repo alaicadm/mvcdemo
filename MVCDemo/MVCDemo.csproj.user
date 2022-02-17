@@ -10,6 +10,9 @@
     <Compile Update="Views\DBConnectionWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Forms\ContactBulkEditWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Forms\ContactCRUDWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,6 +31,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\DBConnectionWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Forms\ContactBulkEditWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Forms\ContactCRUDWindow.xaml">
