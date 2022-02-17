@@ -39,6 +39,12 @@ namespace MVCDemo.Views.Forms
             {
                 PrepareFields();
                 dtContacts = controllerObj.AddToContactsDT(dtContacts, controllerObj);
+                txtFName.Clear();
+                txtMName.Clear();
+                txtLName.Clear();
+                txtContactNo.Clear();
+                rdbFemale.IsChecked = false;
+                rdbMale.IsChecked = false;
             }
             else if (sender == btnSave)
             {
