@@ -4,17 +4,26 @@
 winexe
 C#
 .cs
-D:\Users\reube\source\vs-repos\MVCDemo\MVCDemo\obj\Debug\netcoreapp3.1\
+C:\Users\Asus\source\repos\Collab_Project\mvcdemo\MVCDemo\obj\Debug\netcoreapp3.1\
 MVCDemo
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
+<<<<<<< HEAD
 D:\Users\reube\source\vs-repos\MVCDemo\MVCDemo\App.xaml
 91012938317
 
 21-1500118217
 1951370253453
 MainWindow.xaml;Resources\Values\Images.xaml;Views\DBConnectionWindow.xaml;Views\Forms\ContactBulkCRUDWindow.xaml;Views\Forms\ContactBulkEditWindow.xaml;Views\Forms\ContactCRUDWindow.xaml;Views\Pages\BulkInsertPage.xaml;Views\Pages\ContactPage.xaml;Views\Pages\HelpPage.xaml;
+=======
+C:\Users\Asus\source\repos\Collab_Project\mvcdemo\MVCDemo\App.xaml
+81634174059
+
+201791904785
+195-1809561747
+MainWindow.xaml;Resources\Values\Images.xaml;Views\DBConnectionWindow.xaml;Views\Forms\ContactBulkCRUDWindow.xaml;Views\Forms\ContactCRUDWindow.xaml;Views\Pages\BulkInsertPage.xaml;Views\Pages\ContactPage.xaml;Views\Pages\HelpPage.xaml;
+>>>>>>> b795ba4097b2565998455814ffd91b486e661c17
 
 False
 

@@ -136,7 +136,7 @@ namespace MVCDemo.Views.Forms {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MVCDemo;component/views/forms/contactbulkcrudwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MVCDemo;V1.0.0.0;component/views/forms/contactbulkcrudwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Forms\ContactBulkCRUDWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
