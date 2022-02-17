@@ -33,6 +33,7 @@
                     <StackPanel>
                         <ListView>
                             <ListViewItem x:Name="lviCRUD" MouseUp="lvi_MouseUp" Foreground="White" Content="Records"/>
+                            <ListViewItem x:Name="lviBulkInsert" MouseUp="lvi_MouseUp" Foreground="White" Content="Bulk Insert"/>
                             <ListViewItem x:Name="lviHelp" MouseUp="lvi_MouseUp" Foreground="White" Content="Help"/>
                             <ListViewItem x:Name="lviLogout" MouseUp="lvi_MouseUp" Foreground="White" Content="Logout"/>
                         </ListView>

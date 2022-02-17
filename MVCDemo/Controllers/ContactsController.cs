@@ -99,6 +99,37 @@ namespace MVCDemo.Controllers
 
         //for the dialogbox
         public bool closeD { get { return shouldClose; } set { shouldClose = value; } }
-       
+
+        public DataTable InitializeDTContact()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("FirstName", typeof(string));
+            dt.Columns.Add("MiddleName", typeof(string));
+            dt.Columns.Add("LastName", typeof(string));
+            dt.Columns.Add("Mobile", typeof(string));
+            dt.Columns.Add("Gender", typeof(string));
+            return dt;
+        }
+
+        public DataTable AddToContactsDT(DataTable dtContacts, ContactsController data)
+        {
+            dtContacts.Rows.Add(
+                data.FirstName,
+                data.MiddleName,
+                data.LastName,
+                data.Mobile,
+                data.Gender
+                );
+            return dtContacts;
+        }
+
+        public bool BulkSave(ContactsController data)
+        {
+            cmd = new SqlCommand("usp_BulkSaveContact");
+            cmd.Parameters.AddWithValue("@dtContactsForSaving", data.dtContactsForSaving);
+            return SQLQueries.SqlExecNQInsert(cmd);
+            //you can add prompt here or insinde SQLExecNQInsert
+        }
+
     }
 }

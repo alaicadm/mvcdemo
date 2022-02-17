@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 
 namespace MVCDemo.Models
@@ -12,5 +13,6 @@ namespace MVCDemo.Models
         public string LastName { get; set; }
         public string Mobile { get; set; }
         public string Gender { get; set; }
+        public DataTable dtContactsForSaving { get; set; }
     }
 }

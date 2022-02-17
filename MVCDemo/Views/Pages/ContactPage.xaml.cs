@@ -57,15 +57,23 @@ namespace MVCDemo.Views.Pages
             }
             else if (sender == btnDelete)
             {
-                int selectedId = (int)((DataRowView)dgContacts.SelectedItem).Row[0];
-                controllerObj.UserId = selectedId;
-                
-                bool res = controllerObj.Delete(controllerObj);
-                if (res)
+                try
                 {
-                    MessageBox.Show("Successfully deleted!");
-                    reload = true;
+                    int selectedId = (int)((DataRowView)dgContacts.SelectedItem).Row[0];
+                    controllerObj.UserId = selectedId;
+
+                    bool res = controllerObj.Delete(controllerObj);
+                    if (res)
+                    {
+                        MessageBox.Show("Successfully deleted!");
+                        reload = true;
+                    }
                 }
+                catch
+                {
+                    MessageBox.Show("Please select from the list!");
+                }
+                
             }
             else if (sender == btnSearch)
                 Search();

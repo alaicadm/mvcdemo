@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 D:\Users\reube\source\vs-repos\MVCDemo\MVCDemo\App.xaml
-6905129068
+81760809803
 
-20-390532564
+22-1251822236
 1951370253453
-MainWindow.xaml;Resources\Values\Images.xaml;Views\DBConnectionWindow.xaml;Views\Forms\ContactCRUDWindow.xaml;Views\Pages\ContactPage.xaml;Views\Pages\HelpPage.xaml;
+MainWindow.xaml;Resources\Values\Images.xaml;Views\DBConnectionWindow.xaml;Views\Forms\ContactBulkCRUDWindow.xaml;Views\Forms\ContactCRUDWindow.xaml;Views\Pages\BulkInsertPage.xaml;Views\Pages\ContactPage.xaml;Views\Pages\HelpPage.xaml;
 
 False
 

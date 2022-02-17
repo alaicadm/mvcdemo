@@ -1,0 +1,81 @@
+﻿<Window x:Class="MVCDemo.Views.Forms.ContactBulkCRUDWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVCDemo.Views.Forms"
+        mc:Ignorable="d"
+        Title="ContactCRUDWindow" 
+        Height="600" Width="700" WindowStyle="None" 
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True" Background="{x:Null}">
+
+    <materialDesign:Card UniformCornerRadius="20" materialDesign:ShadowAssist.ShadowDepth="Depth2" Background="{StaticResource MaterialDesignPaper}">
+        <Grid>
+            <Grid.ColumnDefinitions/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="btnClose" Click="Button_Click" Width="50" HorizontalAlignment="Right" Background="{x:Null}" BorderThickness="0">
+                <Button.Content>
+                    <StackPanel>
+                        <materialDesign:PackIcon Kind="Close" Foreground="Black"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <TextBox x:Name="txtFName" Margin="10 0 10 0" materialDesign:HintAssist.Hint="First Name" Grid.Row="1" Padding="10 0"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <TextBox x:Name="txtMName" Margin="10 0 10 0" materialDesign:HintAssist.Hint="Middle Name" Grid.Row="2" Padding="10 0"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <TextBox x:Name="txtLName" Margin="10 0 10 0" materialDesign:HintAssist.Hint="Last Name" Grid.Row="3" Padding="10 0"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <TextBox x:Name="txtContactNo" Margin="10 0 10 0" materialDesign:HintAssist.Hint="Contact Number" Grid.Row="4" Padding="10 0"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <StackPanel Orientation="Horizontal" Grid.Row="5" Margin="10 0 0 0">
+                <RadioButton x:Name="rdbMale" Content="Male" Click="rdoGender_Click"/>
+                <RadioButton x:Name="rdbFemale" Content="Female" Click="rdoGender_Click"/>
+            </StackPanel>
+            <Button x:Name="btnAdd" Grid.Row="6" Width="100" Click="Button_Click">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Plus" Margin="0 6 0 0"/>
+                        <Label Content="ADD" Foreground="White"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <DataGrid Grid.Row="7" x:Name="dgContacts" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dgContacts_SelectionChanged" Margin="10">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Background="{StaticResource MaterialDesignValidationErrorBrush}" Click="Remove_Click" BorderThickness="0">
+                                    <Button.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <materialDesign:PackIcon Kind="Trash" Margin="0 6 0 0"/>
+                                            <Label Content="Remove" Foreground="White"/>
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    
+                    <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
+                    <DataGridTextColumn Header="Middle Name" Binding="{Binding MiddleName}"/>
+                    <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
+                    <DataGridTextColumn Header="Gender" Binding="{Binding Gender}"/>
+                    <DataGridTextColumn Header="Phone Number" Binding="{Binding Mobile}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Button x:Name="btnSave" Click="Button_Click" Content="SAVE" Grid.Row="8" Width="150" HorizontalAlignment="Right" Margin="0 3 10 0"/>
+
+        </Grid>
+    </materialDesign:Card>
+</Window>
