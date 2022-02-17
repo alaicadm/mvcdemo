@@ -23,6 +23,7 @@ namespace MVCDemo.Views.Pages
     {
         ContactsController controllerObj = new ContactsController();
         DataTable dtContacts,dt;
+        
 
         public BulkInsertPage()
         {
@@ -82,6 +83,7 @@ namespace MVCDemo.Views.Pages
             dgContacts.ItemsSource = dt.DefaultView;
         }
 
-      
+       
+
     }
 }

@@ -62,7 +62,7 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <CheckBox
-                                x:Name="itemCheckBox"
+                                x:Name="itemCheckBox" IsChecked="{Binding isChecked}"
                                 IsThreeState="False"
                                 Margin="0 8 0 0"
                                  />
