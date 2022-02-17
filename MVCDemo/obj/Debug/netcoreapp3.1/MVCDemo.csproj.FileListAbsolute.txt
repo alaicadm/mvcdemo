@@ -78,3 +78,5 @@ D:\Users\reube\source\vs-repos\MVCDemo\MVCDemo\obj\Debug\netcoreapp3.1\MVCDemo.c
 D:\Users\reube\source\vs-repos\MVCDemo\MVCDemo\obj\Debug\netcoreapp3.1\MVCDemo.dll
 D:\Users\reube\source\vs-repos\MVCDemo\MVCDemo\obj\Debug\netcoreapp3.1\MVCDemo.pdb
 D:\Users\reube\source\vs-repos\MVCDemo\MVCDemo\obj\Debug\netcoreapp3.1\MVCDemo.genruntimeconfig.cache
+D:\Users\reube\source\vs-repos\MVCDemo\MVCDemo\obj\Debug\netcoreapp3.1\Views\Forms\ContactBulkEditWindow.g.cs
+D:\Users\reube\source\vs-repos\MVCDemo\MVCDemo\obj\Debug\netcoreapp3.1\Views\Forms\ContactBulkEditWindow.baml

@@ -52,8 +52,8 @@
             <TextBox x:Name="txtSearch" KeyDown="txtSearch_KeyDown" Width="200" Margin="3 0 0 0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignTextBoxBase}" materialDesign:HintAssist.Hint="Search"/>
             <Button x:Name="btnSearch" Margin="3 0 0 0" Content="Search" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Click="Button_Click"/>
         </StackPanel>
-        
-        <DataGrid Margin="3" x:Name="dgContacts" AutoGenerateColumns="False" Grid.Row="1" Style="{StaticResource MaterialDesignDataGrid}" IsReadOnly="True" SelectionChanged="dgContacts_SelectionChanged">
+
+        <DataGrid  Margin="3" x:Name="dgContacts" AutoGenerateColumns="False" Grid.Row="1" Style="{StaticResource MaterialDesignDataGrid}" IsReadOnly="True" SelectionChanged="dgContacts_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding UserId}"/>
                 <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
