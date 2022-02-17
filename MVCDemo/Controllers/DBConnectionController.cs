@@ -99,6 +99,9 @@ namespace MVCDemo.Controllers
         public void Dispose()
         {
             throw new NotImplementedException();
+
+            //comment
+            //comment2
         }
     }
 }
