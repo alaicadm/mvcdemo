@@ -42,9 +42,10 @@ namespace MVCDemo.Views.Forms
                 txtFName.Clear();
                 txtMName.Clear();
                 txtLName.Clear();
+                txtGender.Text="";
                 txtContactNo.Clear();
-                rdbFemale.IsChecked = false;
-                rdbMale.IsChecked = false;
+                //rdbFemale.IsChecked = false;
+                //rdbMale.IsChecked = false;
             }
             else if (sender == btnSave)
             {
@@ -53,6 +54,7 @@ namespace MVCDemo.Views.Forms
                 {
                     MessageBox.Show("Succesfully Added!");
                     this.DialogResult = true;
+                    //dtContacts = null;
 
                 }
             }
@@ -65,9 +67,9 @@ namespace MVCDemo.Views.Forms
             controllerObj.FirstName = txtFName.Text;
             controllerObj.MiddleName = txtMName.Text;
             controllerObj.LastName = txtLName.Text;
-            controllerObj.Gender = "N/A";
-            if (Utils.Utils.ToBool(rdbMale.IsChecked.Value) == true) controllerObj.Gender = "Male";
-            if (Utils.Utils.ToBool(rdbFemale.IsChecked.Value) == true) controllerObj.Gender = "Female";
+            controllerObj.Gender = txtGender.Text;
+            //if (Utils.Utils.ToBool(rdbMale.IsChecked.Value) == true) controllerObj.Gender = "Male";
+            //if (Utils.Utils.ToBool(rdbFemale.IsChecked.Value) == true) controllerObj.Gender = "Female";
             controllerObj.Mobile = txtContactNo.Text;    
         }
 

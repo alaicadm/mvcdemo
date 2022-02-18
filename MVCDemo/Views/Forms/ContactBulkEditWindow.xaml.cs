@@ -20,14 +20,17 @@ namespace MVCDemo.Views.Forms
     public partial class ContactBulkEditWindow : Window
     {
         ContactsController controllerObj = new ContactsController();
-        DataTable dtContacts, dt;
+        DataTable dtContacts, dt, cdt;
+
         //private int selectedRec;
         public ContactBulkEditWindow(DataTable cdt)
         {
             InitializeComponent();
+
             //initialize datatable schema
-            //dtContacts = controllerObj.InitializeDTContact();
+            dtContacts = cdt;
             DisplayRecord(cdt);
+            
             ContentsFromRecord();
             
         }
@@ -47,7 +50,7 @@ namespace MVCDemo.Views.Forms
                 }
                 catch
                 {
-                    MessageBox.Show("You were not bable to select some records.");
+                    MessageBox.Show("You were not able to select some records.");
                 }
             }
             
@@ -64,6 +67,7 @@ namespace MVCDemo.Views.Forms
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
             /*if (sender == btnAdd)
             {
                 PrepareFields();
@@ -77,11 +81,13 @@ namespace MVCDemo.Views.Forms
             }*/
             if (sender == btnSave)
             {
-                controllerObj.dtContactsForSaving = dtContacts;
-                if (controllerObj.BulkSave(controllerObj))
+
+                controllerObj.dtContactsForUpdating = dtContacts;
+                if (controllerObj.BulkUpdate(controllerObj))
                 {
-                    MessageBox.Show("Succesfully Added!");
+                    MessageBox.Show("Succesfully Updated!");
                     this.DialogResult = true;
+                    
 
                 }
             }
@@ -98,6 +104,7 @@ namespace MVCDemo.Views.Forms
             if (Utils.Utils.ToBool(rdbMale.IsChecked.Value) == true) controllerObj.Gender = "Male";
             if (Utils.Utils.ToBool(rdbFemale.IsChecked.Value) == true) controllerObj.Gender = "Female";
             controllerObj.Mobile = txtContactNo.Text;*/
+
         }
 
         private void dgContacts_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -114,7 +121,7 @@ namespace MVCDemo.Views.Forms
 
         private void rdoGender_Click(object sender, RoutedEventArgs e)
         {
-
+           
         }
     }
 }

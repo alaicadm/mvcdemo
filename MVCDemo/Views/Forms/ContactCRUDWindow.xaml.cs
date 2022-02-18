@@ -43,8 +43,9 @@ namespace MVCDemo.Views.Forms
                 txtFName.IsHitTestVisible = false;
                 txtMName.IsHitTestVisible = false;
                 txtLName.IsHitTestVisible = false;
-                rdbFemale.IsHitTestVisible = false;
-                rdbMale.IsHitTestVisible = false;
+                txtGender.IsHitTestVisible = false;
+                //rdbFemale.IsHitTestVisible = false;
+                //rdbMale.IsHitTestVisible = false;
             }
             else
                 btnSave.Content = "Edit"; 
@@ -52,8 +53,9 @@ namespace MVCDemo.Views.Forms
             txtFName.Text =  controllerObj.FirstName;
             txtMName.Text = controllerObj.MiddleName;
             txtLName.Text =  controllerObj.LastName;
-            rdbMale.IsChecked = string.IsNullOrWhiteSpace(controllerObj.Gender) == true ? false : controllerObj.Gender == "Male" ? true : false;
-            rdbFemale.IsChecked = string.IsNullOrWhiteSpace(controllerObj.Gender) == true ? false : controllerObj.Gender == "Female" ? true : false;
+            txtGender.Text = controllerObj.Gender;
+            //rdbMale.IsChecked = string.IsNullOrWhiteSpace(controllerObj.Gender) == true ? false : controllerObj.Gender == "Male" ? true : false;
+            //rdbFemale.IsChecked = string.IsNullOrWhiteSpace(controllerObj.Gender) == true ? false : controllerObj.Gender == "Female" ? true : false;
             txtContactNo.Text = controllerObj.Mobile;
                
         }
@@ -106,9 +108,9 @@ namespace MVCDemo.Views.Forms
             controllerObj.FirstName = txtFName.Text;
             controllerObj.MiddleName = txtMName.Text;
             controllerObj.LastName = txtLName.Text;
-            controllerObj.Gender = "N/A";
-            if (Utils.Utils.ToBool(rdbMale.IsChecked.Value) == true) controllerObj.Gender = "Male";
-            if (Utils.Utils.ToBool(rdbFemale.IsChecked.Value) == true) controllerObj.Gender = "Female";
+            controllerObj.Gender = txtGender.Text;
+            //if (Utils.Utils.ToBool(rdbMale.IsChecked.Value) == true) controllerObj.Gender = "Male";
+            //if (Utils.Utils.ToBool(rdbFemale.IsChecked.Value) == true) controllerObj.Gender = "Female";
             controllerObj.Mobile = txtContactNo.Text;
         }
         

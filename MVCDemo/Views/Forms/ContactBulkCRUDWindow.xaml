@@ -36,10 +36,14 @@
             <TextBox x:Name="txtMName" Margin="10 0 10 0" materialDesign:HintAssist.Hint="Middle Name" Grid.Row="2" Padding="10 0"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox x:Name="txtLName" Margin="10 0 10 0" materialDesign:HintAssist.Hint="Last Name" Grid.Row="3" Padding="10 0"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox x:Name="txtContactNo" Margin="10 0 10 0" materialDesign:HintAssist.Hint="Contact Number" Grid.Row="4" Padding="10 0"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-            <StackPanel Orientation="Horizontal" Grid.Row="5" Margin="10 0 0 0">
-                <RadioButton x:Name="rdbMale" Content="Male" Click="rdoGender_Click"/>
-                <RadioButton x:Name="rdbFemale" Content="Female" Click="rdoGender_Click"/>
-            </StackPanel>
+            <ComboBox Grid.Row="5" Margin="10 0 10 0" Padding="10 0"
+                materialDesign:HintAssist.Hint="Gender" x:Name="txtGender">
+                <ComboBoxItem
+                Content="Male" />
+                <ComboBoxItem
+                Content="Female" />
+                
+            </ComboBox>
             <Button x:Name="btnAdd" Grid.Row="6" Width="100" Click="Button_Click">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">

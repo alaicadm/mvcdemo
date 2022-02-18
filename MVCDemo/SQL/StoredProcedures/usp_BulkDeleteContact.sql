@@ -1,10 +1,10 @@
-IF EXISTS (SELECT * FROM sys.procedures WHERE name = 'usp_BulkSaveContact')
-	DROP PROCEDURE usp_BulkSaveContact
+IF EXISTS (SELECT * FROM sys.procedures WHERE name = 'usp_BulkDeleteContact')
+	DROP PROCEDURE usp_BulkDeleteContact
 GO
-IF EXISTS (SELECT * FROM sys.types WHERE name = 'type_BulkSave')
-	DROP TYPE type_BulkSave
+IF EXISTS (SELECT * FROM sys.types WHERE name = 'type_BulkDelete')
+	DROP TYPE type_BulkDelete
 GO
-CREATE TYPE type_BulkSave AS TABLE
+CREATE TYPE type_BulkDelete AS TABLE
 (
 	FirstName		nvarchar(100),
 	MiddleName		nvarchar(100),
@@ -13,9 +13,9 @@ CREATE TYPE type_BulkSave AS TABLE
     Gender			nvarchar(100)    
 )
 GO
-CREATE PROCEDURE	usp_BulkSaveContact
+CREATE PROCEDURE	usp_BulkDeleteContact
 (
-	@dtContactsForSaving type_BulkSave READONLY
+	@dtContactsForSaving type_BulkDelete READONLY
 )
 AS
 SET NOCOUNT OFF
@@ -24,20 +24,11 @@ SET XACT_ABORT ON --FORCE ROLLBACK IF RUNTIME ERROR OCCURS
 	BEGIN TRY
 		BEGIN TRANSACTION 
 
-				INSERT INTO Contacts(
-										FirstName,
-										MiddleName,
-										LastName,
-										Mobile,
-										Gender
-									)
-						SELECT 
-								FirstName,
-								MiddleName,
-								LastName,
-								Mobile,
-								Gender
-						FROM @dtContactsForSaving
+				
+				
+				
+				SELECT UserId FROM @dtContactsForSaving as dtc;
+				DELETE FROM Contacts WHERE UserId = dtc
 
 		COMMIT TRANSACTION
 	END TRY

@@ -57,7 +57,7 @@
             
         </StackPanel>
         <DataGrid x:Name="dgContacts" IsReadOnly="True" CanUserAddRows="False" 
-                  
+                  EnableColumnVirtualization="False" EnableRowVirtualization="False"
                   SelectionUnit="FullRow" AutoGenerateColumns="False" SelectionChanged="dgContacts_SelectionChanged" Grid.Row="1" Margin="10">
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
