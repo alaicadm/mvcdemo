@@ -22,12 +22,12 @@ namespace MVCDemo.Views.Forms
         ContactsController controllerObj = new ContactsController();
         DataTable dtContacts, dt;
         //private int selectedRec;
-        public ContactBulkEditWindow()
+        public ContactBulkEditWindow(DataTable cdt)
         {
             InitializeComponent();
             //initialize datatable schema
             //dtContacts = controllerObj.InitializeDTContact();
-            DisplayRecord();
+            DisplayRecord(cdt);
             ContentsFromRecord();
             
         }
@@ -36,10 +36,22 @@ namespace MVCDemo.Views.Forms
             dgContacts.ItemsSource = dtContacts.DefaultView;
         }*/
 
-        private void DisplayRecord()
+        private void DisplayRecord(DataTable cdt)
         {
-            dt = controllerObj.GetContacts("");
-            dgContacts.ItemsSource = dt.DefaultView;
+            //dt = controllerObj.GetContacts("");
+            if (cdt != null)
+            {
+                try
+                {
+                    dgContacts.ItemsSource = cdt.DefaultView;
+                }
+                catch
+                {
+                    MessageBox.Show("You were not bable to select some records.");
+                }
+            }
+            
+           
         }
         private void ContentsFromRecord()
         {

@@ -22,8 +22,9 @@ namespace MVCDemo.Views.Pages
     public partial class BulkInsertPage : Page
     {
         ContactsController controllerObj = new ContactsController();
-        DataTable dtContacts,dt;
-        
+        DataTable dtContacts, dt, cdt;
+       
+
 
         public BulkInsertPage()
         {
@@ -58,7 +59,8 @@ namespace MVCDemo.Views.Pages
             }
             else if (sender == btnUpdate)
             {
-                ContactBulkEditWindow crudEdit = new ContactBulkEditWindow();
+                
+                ContactBulkEditWindow crudEdit = new ContactBulkEditWindow(cdt);
                 crudEdit.ShowDialog();
                 if (crudEdit.DialogResult == true)
                 {
@@ -81,6 +83,26 @@ namespace MVCDemo.Views.Pages
         {
             dt = controllerObj.GetContacts("");
             dgContacts.ItemsSource = dt.DefaultView;
+        }
+
+        private void checkBoxClicked(object sender, EventArgs e)
+        {
+            cdt = new DataTable();
+            cdt.Columns.Add("UserId", typeof(int));
+            cdt.Columns.Add("FirstName", typeof(string));
+            cdt.Columns.Add("MiddleName", typeof(string));
+            cdt.Columns.Add("LastName", typeof(string));
+            cdt.Columns.Add("Mobile", typeof(string));
+            cdt.Columns.Add("Gender", typeof(string));
+
+            DataRowView row = dgContacts.SelectedItem as DataRowView;
+            cdt.Rows.Add(row.Row.ItemArray);   
+
+        }
+
+        public DataTable selectedDontacts()
+        {
+            return cdt;
         }
 
        
