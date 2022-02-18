@@ -16,7 +16,7 @@ namespace MVCDemo.Controllers
         public DataTable GetContacts(string keyword)
         {
             keyword = string.IsNullOrWhiteSpace(keyword) == false ? keyword : "";
-            cmd = new SqlCommand("usp_SearchContacts");
+            cmd = new SqlCommand("usp_read_list");
             cmd.Parameters.AddWithValue("@Keyword",keyword);
             DataTable dt = SQLQueries.SqlExecReaderWithParams(cmd);
             return dt;
@@ -51,7 +51,7 @@ namespace MVCDemo.Controllers
             if (complete == true)
             {
                 cmd = new SqlCommand("usp_EditContact");
-                cmd.Parameters.AddWithValue("@UserId", data.UserId);
+                cmd.Parameters.AddWithValue("@User_ID", data.User_ID);
                 cmd.Parameters.AddWithValue("@FirstName", data.FirstName);
                 cmd.Parameters.AddWithValue("@MiddleName", data.MiddleName);
                 cmd.Parameters.AddWithValue("@LastName", data.LastName);
@@ -74,7 +74,7 @@ namespace MVCDemo.Controllers
         public bool Delete(ContactsController data)
         {
             cmd = new SqlCommand("usp_DeleteContact");
-            cmd.Parameters.AddWithValue("@UserId", data.UserId);
+            cmd.Parameters.AddWithValue("@User_ID", data.User_ID);
             return SQLQueries.SqlExecNQDelete(cmd);
             //you can add prompt here or insinde SqlExecNQDelete
         }
@@ -129,6 +129,13 @@ namespace MVCDemo.Controllers
             cmd.Parameters.AddWithValue("@dtContactsForSaving", data.dtContactsForSaving);
             return SQLQueries.SqlExecNQInsert(cmd);
             //you can add prompt here or insinde SQLExecNQInsert
+        }
+
+        public bool BulkDelete(ContactsController data)
+        {
+            cmd = new SqlCommand("usp_BulkDeleteContact");
+            cmd.Parameters.AddWithValue("@dtContactsForDelete", data.dtContactsForDelete);
+            return SQLQueries.SqlExecNQDelete(cmd);
         }
 
     }

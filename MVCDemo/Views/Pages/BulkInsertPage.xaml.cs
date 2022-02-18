@@ -67,16 +67,19 @@ namespace MVCDemo.Views.Pages
                     DisplayRecord();
                 }
             }
-            /* else if(sender == btnSave)
-             {
-                 controllerObj.dtContactsForSaving = dtContacts;
-                 if (controllerObj.BulkSave(controllerObj))
-                 {
-                     MessageBox.Show("", "Succesfully Added!");
-                     DisplayRecord();
 
-                 }
-             }*/
+            else if (sender == btnDel)
+            {
+                controllerObj.dtContactsForDelete = dtContacts;
+                if (controllerObj.BulkDelete(controllerObj))
+                {
+                    MessageBox.Show("Succesfully Deleted!");
+                   
+                }
+            }
+
+
+
         }
 
         private void DisplayRecord()
@@ -88,7 +91,7 @@ namespace MVCDemo.Views.Pages
         private void checkBoxClicked(object sender, EventArgs e)
         {
             cdt = new DataTable();
-            cdt.Columns.Add("UserId", typeof(int));
+            cdt.Columns.Add("User_ID", typeof(int));
             cdt.Columns.Add("FirstName", typeof(string));
             cdt.Columns.Add("MiddleName", typeof(string));
             cdt.Columns.Add("LastName", typeof(string));
