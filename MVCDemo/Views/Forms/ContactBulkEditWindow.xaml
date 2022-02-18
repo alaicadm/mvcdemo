@@ -29,7 +29,8 @@
             </Button>
             
 
-            <DataGrid Grid.Row="1" x:Name="dgContacts" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dgContacts_SelectionChanged" Margin="10">
+            <DataGrid Grid.Row="1" x:Name="dgContacts" CanUserAddRows="False" AutoGenerateColumns="False" 
+                      SelectionChanged="dgContacts_SelectionChanged" Margin="10">
                 <DataGrid.Columns>
                    
 
@@ -39,14 +40,14 @@
                     <DataGridTemplateColumn Header="Gender">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <ComboBox
-                                      materialDesign:HintAssist.Hint="{Binding Gender}">
+                                <ComboBox materialDesign:HintAssist.Hint="{Binding Gender}"
+                                      SelectedItem="{Binding Gender}">
                                       <ComboBoxItem
                                         Content="Male" />
                                       <ComboBoxItem
                                         Content="Female" />
                                      
-                                   </ComboBox>
+                                  </ComboBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

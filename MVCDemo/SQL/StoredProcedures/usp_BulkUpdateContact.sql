@@ -1,11 +1,12 @@
-IF EXISTS (SELECT * FROM sys.procedures WHERE name = 'usp_BulkSaveContact')
-	DROP PROCEDURE usp_BulkSaveContact
+IF EXISTS (SELECT * FROM sys.procedures WHERE name = 'usp_BulkUpdateContact')
+	DROP PROCEDURE usp_BulkUpdateContact
 GO
-IF EXISTS (SELECT * FROM sys.types WHERE name = 'type_BulkSave')
-	DROP TYPE type_BulkSave
+IF EXISTS (SELECT * FROM sys.types WHERE name = 'type_BulkUpdate')
+	DROP TYPE type_BulkUpdate
 GO
-CREATE TYPE type_BulkSave AS TABLE
+CREATE TYPE type_BulkUpdate AS TABLE
 (
+	UserId			int,
 	FirstName		nvarchar(100),
 	MiddleName		nvarchar(100),
     LastName		nvarchar(100),
@@ -13,9 +14,9 @@ CREATE TYPE type_BulkSave AS TABLE
     Gender			nvarchar(100)    
 )
 GO
-CREATE PROCEDURE	usp_BulkSaveContact
+CREATE PROCEDURE	usp_BulkUpdateContact
 (
-	@dtContactsForSaving type_BulkSave READONLY
+	@dtContactsForUpdating type_BulkUpdate READONLY
 )
 AS
 SET NOCOUNT OFF
@@ -23,21 +24,17 @@ SET XACT_ABORT ON --FORCE ROLLBACK IF RUNTIME ERROR OCCURS
 	
 	BEGIN TRY
 		BEGIN TRANSACTION 
+				
+				MERGE INTO Contacts con
+				USING @dtContactsForUpdating dtc
+				ON con.UserId = dtc.UserId
+				WHEN MATCHED THEN
+				UPDATE SET	con.FirstName = dtc.FirstName,
+							con.MiddleName = dtc.MiddleName,
+							con.LastName = dtc.LastName,
+							con.Mobile = dtc.Mobile,
+							con.Gender = dtc.Gender;
 
-				INSERT INTO Contacts(
-										FirstName,
-										MiddleName,
-										LastName,
-										Mobile,
-										Gender
-									)
-						SELECT 
-								FirstName,
-								MiddleName,
-								LastName,
-								Mobile,
-								Gender
-						FROM @dtContactsForSaving
 
 		COMMIT TRANSACTION
 	END TRY
