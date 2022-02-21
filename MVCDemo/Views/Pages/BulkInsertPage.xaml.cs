@@ -1,4 +1,5 @@
 ﻿using MVCDemo.Controllers;
+using MVCDemo.Models;
 using MVCDemo.Views.Forms;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace MVCDemo.Views.Pages
     {
         ContactsController controllerObj = new ContactsController();
         DataTable dtContacts, dt, cdt, cdtDel;
+        ContactsModel cm = new ContactsModel();
        
 
 
@@ -32,6 +34,8 @@ namespace MVCDemo.Views.Pages
             DisplayRecord();
             cdt = controllerObj.InitializeDTContactWithID();
             //cdtDel = controllerObj.InitializeDTContactUserID();
+
+            //cdt = controllerObj.InitializeDTContactWithCheckbox();
 
         }
 
@@ -66,6 +70,7 @@ namespace MVCDemo.Views.Pages
                 if (crudEdit.DialogResult == true)
                 {
                     DisplayRecord();
+                    
                 }
             }
             else if (sender == btnDel)
@@ -99,17 +104,46 @@ namespace MVCDemo.Views.Pages
 
         private void checkBoxClicked(object sender, EventArgs e)
         {
-            //cdt = controllerObj.InitializeDTContactWithID();
+            //cdt = controllerObj.InitializeDTContactWithCheckbox();
             DataRowView row = dgContacts.SelectedItem as DataRowView;
             cdt.Rows.Add(row.Row.ItemArray);
+   
+        }
+
+        private void checkBoxUnclicked(object sender, EventArgs e)
+        {
+            //cdt = controllerObj.InitializeDTContactWithCheckbox();
+            DataRowView row = dgContacts.SelectedItem as DataRowView;
+            //cdt.Rows.Remove(row.Row);
+            
         }
 
         public DataTable selectedContacts()
         {
+            //return cdt;
+           /* foreach (DataRow row in dt.Rows)
+            {
+                if ((int)row["isChecked"] == 1)
+                {
+                    cdt.Rows.Add(row.ItemArray);
+                }
+            }*/
             return cdt;
         }
 
+        public void refreshDataGrid(bool shouldRefresh)
+        {
+            if (shouldRefresh == true) 
+            { 
+                
+                //dgContacts.ItemsSource = dt.DefaultView;
+            }
+            
+        }
 
+        
+
+        
 
 
 

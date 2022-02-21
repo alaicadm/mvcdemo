@@ -32,7 +32,7 @@
             <DataGrid Grid.Row="1" x:Name="dgContacts" CanUserAddRows="False" AutoGenerateColumns="False" 
                       SelectionChanged="dgContacts_SelectionChanged" Margin="10">
                 <DataGrid.Columns>
-                   
+                    
 
                     <DataGridTextColumn Header="First Name" Binding="{Binding FirstName }"/>
                     <DataGridTextColumn Header="Middle Name" Binding="{Binding MiddleName}"/>
@@ -40,18 +40,31 @@
                     <DataGridTemplateColumn Header="Gender">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <ComboBox
-                                     IsSynchronizedWithCurrentItem = "True" SelectedItem="{Binding Gender, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
-                                      <ComboBoxItem
-                                        Content="Male" />
-                                      <ComboBoxItem
-                                        Content="Female" />
-                                     
-                                  </ComboBox>
+                                <ComboBox  x:Name="genderBox" materialDesign:HintAssist.Hint="{Binding Gender}"
+                                     IsSynchronizedWithCurrentItem = "True" SelectedItem="{Binding Gender, UpdateSourceTrigger=PropertyChanged}">
+                                    <ComboBoxItem Content="Male" />
+                                    <ComboBoxItem Content="Female"/>
+
+                                </ComboBox>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTextColumn Header="Phone Number" Binding="{Binding Mobile}"/>
+
+                    <DataGridTemplateColumn Header="Action">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Background="{StaticResource MaterialDesignValidationErrorBrush}" Click="Remove_Click" BorderThickness="0">
+                                    <Button.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <materialDesign:PackIcon Kind="Trash" Margin="0 6 0 0"/>
+                                            <Label Content="Remove" Foreground="White"/>
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
 

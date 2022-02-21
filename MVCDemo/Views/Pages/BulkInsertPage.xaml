@@ -57,7 +57,7 @@
             
         </StackPanel>
         <DataGrid x:Name="dgContacts" IsReadOnly="True" CanUserAddRows="False"
-                  SelectionMode="Extended"
+                  SelectionMode="Extended" 
                   EnableColumnVirtualization="False" EnableRowVirtualization="False"
                   SelectionUnit="FullRow" AutoGenerateColumns="False" SelectionChanged="dgContacts_SelectionChanged" Grid.Row="1" Margin="10">
             <DataGrid.Columns>
@@ -65,7 +65,7 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <CheckBox
-                                x:Name="itemCheckBox" Click="checkBoxClicked"
+                                x:Name="itemCheckBox" Checked="checkBoxClicked" Unchecked="checkBoxUnclicked"
                                 IsThreeState="False"
                                 Margin="0 8 0 0"
                                  />

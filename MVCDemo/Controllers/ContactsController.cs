@@ -123,6 +123,18 @@ namespace MVCDemo.Controllers
             return dt;
         }
 
+        public DataTable InitializeDTContactWithCheckbox()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("UserId", typeof(int));
+            dt.Columns.Add("FirstName", typeof(string));
+            dt.Columns.Add("MiddleName", typeof(string));
+            dt.Columns.Add("LastName", typeof(string));
+            dt.Columns.Add("Mobile", typeof(string));
+            dt.Columns.Add("Gender", typeof(string));
+            return dt;
+        }
+
         public DataTable InitializeDTContactUserID()
         {
             DataTable dt = new DataTable();

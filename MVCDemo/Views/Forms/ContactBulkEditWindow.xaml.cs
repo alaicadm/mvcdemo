@@ -1,4 +1,5 @@
 ﻿using MVCDemo.Controllers;
+using MVCDemo.Views.Pages;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,6 +21,7 @@ namespace MVCDemo.Views.Forms
     public partial class ContactBulkEditWindow : Window
     {
         ContactsController controllerObj = new ContactsController();
+        BulkInsertPage bulkInsertPage = new BulkInsertPage();
         DataTable dtContacts, dt, cdt;
 
         //private int selectedRec;
@@ -86,10 +88,10 @@ namespace MVCDemo.Views.Forms
                 if (controllerObj.BulkUpdate(controllerObj))
                 {
                     MessageBox.Show("Succesfully Updated!");
-                    //this.DialogResult = true;
-                    this.Close();
+                    this.DialogResult = true;
+                    //this.Close();
                     
-                    
+
 
                 }
             }
@@ -114,6 +116,7 @@ namespace MVCDemo.Views.Forms
         private void dgContacts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //selection changed here...
+            
         }
 
         private void Remove_Click(object sender, RoutedEventArgs e)

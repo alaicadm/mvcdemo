@@ -22,5 +22,7 @@ namespace MVCDemo.Models
         public DataTable dtContactsForSaving { get { return dtcSave; } set { dtcSave = value; OnPropertyChanged("dtContactsForSaving"); } }
         public DataTable dtContactsForUpdating { get { return dtcUpdate; } set { dtcUpdate = value; OnPropertyChanged("dtContactsForUpdating"); } }
         public DataTable dtContactsForDeleting { get; set; }
+
+        public int isChecked { get; set; }
     }
 }
