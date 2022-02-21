@@ -22,7 +22,7 @@ namespace MVCDemo.Views.Pages
     public partial class BulkInsertPage : Page
     {
         ContactsController controllerObj = new ContactsController();
-        DataTable dtContacts, dt, cdt;
+        DataTable dtContacts, dt, cdt, cdtDel;
        
 
 
@@ -31,6 +31,7 @@ namespace MVCDemo.Views.Pages
             InitializeComponent();
             DisplayRecord();
             cdt = controllerObj.InitializeDTContactWithID();
+            //cdtDel = controllerObj.InitializeDTContactUserID();
 
         }
 
@@ -67,6 +68,17 @@ namespace MVCDemo.Views.Pages
                     DisplayRecord();
                 }
             }
+            else if (sender == btnDel)
+            {
+                
+                controllerObj.dtContactsForDeleting = selectedContacts();
+                if (controllerObj.BulkDelete(controllerObj))
+                {
+                    MessageBox.Show($"Succesfully deleted {selectedContacts().Rows.Count} records!");
+                    DisplayRecord();
+                    
+                }
+            }
             /* else if(sender == btnSave)
              {
                  controllerObj.dtContactsForSaving = dtContacts;
@@ -89,8 +101,7 @@ namespace MVCDemo.Views.Pages
         {
             //cdt = controllerObj.InitializeDTContactWithID();
             DataRowView row = dgContacts.SelectedItem as DataRowView;
-            cdt.Rows.Add(row.Row.ItemArray);   
-
+            cdt.Rows.Add(row.Row.ItemArray);
         }
 
         public DataTable selectedContacts()
@@ -98,7 +109,9 @@ namespace MVCDemo.Views.Pages
             return cdt;
         }
 
-       
+
+
+
 
     }
 }

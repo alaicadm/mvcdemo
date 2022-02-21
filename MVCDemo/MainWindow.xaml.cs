@@ -29,12 +29,14 @@ namespace MVCDemo
         PersonController person = new PersonController();
         List<PersonController> personList = new List<PersonController>();
         ContactsController contactsObj = new ContactsController();
-
+        DBConnectionController dbConn = new DBConnectionController();
 
         DataTable dt;
         public MainWindow()
         {
             InitializeComponent();
+            txtDBBlock.Text = dbConn.DataBase;
+            txtServerBlock.Text = dbConn.Server;
             //dt = contactsObj.GetContacts("");
         }
 
@@ -57,6 +59,7 @@ namespace MVCDemo
 
         private void lvi_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            
             try
             {
                 if (sender == lviCRUD)
@@ -69,7 +72,7 @@ namespace MVCDemo
                 else if (sender == lviBulkInsert)
                 {
                     MainFrame.Navigate(new BulkInsertPage());
-                    txtTitleBlock.Text = "BULK INSERT";
+                    txtTitleBlock.Text = "BULK CRUD";
                 }
 
                 else if (sender == lviHelp)

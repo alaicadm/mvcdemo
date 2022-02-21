@@ -9,7 +9,7 @@
       d:DesignHeight="450" d:DesignWidth="900"
       Title="HelpPage">
 
-    <Grid Background="CadetBlue" Margin="3">
+    <Grid Background="White" Margin="3">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -21,16 +21,16 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <materialDesign:Card Grid.Column="0" UniformCornerRadius="10" materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                <materialDesign:Card Grid.Column="0" UniformCornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth2"
                                      Height="150" Width="300"
-                                     Background="{StaticResource MaterialDesignPaper}" Margin="10,10,10,-200">
+                                     Background="{StaticResource PrimaryHueDarkBrush}" Margin="10,10,10,-200">
                     
                 
                 </materialDesign:Card>
 
-                <materialDesign:Card Grid.Column="1" UniformCornerRadius="10" materialDesign:ShadowAssist.ShadowDepth="Depth2" 
+                <materialDesign:Card Grid.Column="1" UniformCornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth2" 
                                      Height="150" Width="300"
-                                     Background="{StaticResource MaterialDesignPaper}" Margin="10,10,10,-200">
+                                     Background="{StaticResource PrimaryHueDarkBrush}" Margin="10,10,10,-200">
 
 
                 </materialDesign:Card>
@@ -44,15 +44,15 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <materialDesign:Card Grid.Column="0" UniformCornerRadius="10" materialDesign:ShadowAssist.ShadowDepth="Depth2" 
+                <materialDesign:Card Grid.Column="0" UniformCornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth2" 
                                      Height="150" Width="300"
-                                     Background="{StaticResource MaterialDesignPaper}" Margin="10,10,10,-200">
+                                     Background="{StaticResource PrimaryHueDarkBrush}" Margin="10,10,10,-200">
 
 
                 </materialDesign:Card>
-                <materialDesign:Card Grid.Column="1" UniformCornerRadius="10" materialDesign:ShadowAssist.ShadowDepth="Depth2" 
+                <materialDesign:Card Grid.Column="1" UniformCornerRadius="0" materialDesign:ShadowAssist.ShadowDepth="Depth2" 
                                      Height="150" Width="300"
-                                     Background="{StaticResource MaterialDesignPaper}" Margin="10,10,10,-200">
+                                     Background="{StaticResource PrimaryHueDarkBrush}" Margin="10,10,10,-200">
 
 
                 </materialDesign:Card>

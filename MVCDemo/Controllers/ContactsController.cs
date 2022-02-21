@@ -123,6 +123,13 @@ namespace MVCDemo.Controllers
             return dt;
         }
 
+        public DataTable InitializeDTContactUserID()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("UserId", typeof(int));
+            return dt;
+        }
+
         public DataTable AddToContactsDT(DataTable dtContacts, ContactsController data)
         {
             dtContacts.Rows.Add(
@@ -148,6 +155,13 @@ namespace MVCDemo.Controllers
             cmd = new SqlCommand("usp_BulkUpdateContact");
             cmd.Parameters.AddWithValue("@dtContactsForUpdating", data.dtContactsForUpdating);
             return SQLQueries.SqlExecNQUpdate(cmd);
+            //you can add prompt here or insinde SQLExecNQInsert
+        }
+        public bool BulkDelete(ContactsController data)
+        {
+            cmd = new SqlCommand("usp_BulkDeleteContact");
+            cmd.Parameters.AddWithValue("@dtContactsForDeleting", data.dtContactsForDeleting);
+            return SQLQueries.SqlExecNQDelete(cmd);
             //you can add prompt here or insinde SQLExecNQInsert
         }
 

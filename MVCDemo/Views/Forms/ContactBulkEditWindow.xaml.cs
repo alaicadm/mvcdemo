@@ -86,13 +86,17 @@ namespace MVCDemo.Views.Forms
                 if (controllerObj.BulkUpdate(controllerObj))
                 {
                     MessageBox.Show("Succesfully Updated!");
-                    this.DialogResult = true;
+                    //this.DialogResult = true;
+                    this.Close();
+                    
                     
 
                 }
             }
             else if (sender == btnClose)
                 this.Close();
+                dtContacts.Clear();
+                
         }
 
         private void PrepareFields()
@@ -123,5 +127,7 @@ namespace MVCDemo.Views.Forms
         {
            
         }
+
+        
     }
 }

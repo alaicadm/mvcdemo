@@ -6,16 +6,17 @@ IF EXISTS (SELECT * FROM sys.types WHERE name = 'type_BulkDelete')
 GO
 CREATE TYPE type_BulkDelete AS TABLE
 (
+	UserId			int,
 	FirstName		nvarchar(100),
 	MiddleName		nvarchar(100),
     LastName		nvarchar(100),
 	Mobile			nvarchar(100),
-    Gender			nvarchar(100)    
+    Gender			nvarchar(100) 
 )
 GO
 CREATE PROCEDURE	usp_BulkDeleteContact
 (
-	@dtContactsForSaving type_BulkDelete READONLY
+	@dtContactsForDeleting type_BulkDelete READONLY
 )
 AS
 SET NOCOUNT OFF
@@ -24,11 +25,8 @@ SET XACT_ABORT ON --FORCE ROLLBACK IF RUNTIME ERROR OCCURS
 	BEGIN TRY
 		BEGIN TRANSACTION 
 
-				
-				
-				
-				SELECT UserId FROM @dtContactsForSaving as dtc;
-				DELETE FROM Contacts WHERE UserId = dtc
+				DELETE FROM Contacts 
+				WHERE UserId IN (SELECT UserId FROM @dtContactsForDeleting)
 
 		COMMIT TRANSACTION
 	END TRY

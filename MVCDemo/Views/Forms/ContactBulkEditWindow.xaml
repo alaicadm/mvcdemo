@@ -34,14 +34,14 @@
                 <DataGrid.Columns>
                    
 
-                    <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
+                    <DataGridTextColumn Header="First Name" Binding="{Binding FirstName }"/>
                     <DataGridTextColumn Header="Middle Name" Binding="{Binding MiddleName}"/>
                     <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
                     <DataGridTemplateColumn Header="Gender">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <ComboBox materialDesign:HintAssist.Hint="{Binding Gender}"
-                                      SelectedItem="{Binding Gender}">
+                                <ComboBox
+                                     IsSynchronizedWithCurrentItem = "True" SelectedItem="{Binding Gender, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
                                       <ComboBoxItem
                                         Content="Male" />
                                       <ComboBoxItem

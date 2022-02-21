@@ -13,10 +13,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="10"/>
+            
+            
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Margin="10 0 0 0">
+        <StackPanel Orientation="Horizontal" Margin="10 0 0 0" Grid.Row="0">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -56,7 +56,8 @@
             </Grid>
             
         </StackPanel>
-        <DataGrid x:Name="dgContacts" IsReadOnly="True" CanUserAddRows="False" 
+        <DataGrid x:Name="dgContacts" IsReadOnly="True" CanUserAddRows="False"
+                  SelectionMode="Extended"
                   EnableColumnVirtualization="False" EnableRowVirtualization="False"
                   SelectionUnit="FullRow" AutoGenerateColumns="False" SelectionChanged="dgContacts_SelectionChanged" Grid.Row="1" Margin="10">
             <DataGrid.Columns>
