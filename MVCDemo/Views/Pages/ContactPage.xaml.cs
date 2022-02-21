@@ -104,7 +104,7 @@ namespace MVCDemo.Views.Pages
                 controllerObj.MiddleName = drv["MiddleName"].ToString();
                 controllerObj.LastName = drv["LastName"].ToString();
                 controllerObj.Gender = drv["Gender"].ToString();
-                controllerObj.Mobile = drv["Mobile"].ToString();
+                controllerObj.PhoneNumber = drv["PhoneNumber"].ToString();
             }
         }
     }

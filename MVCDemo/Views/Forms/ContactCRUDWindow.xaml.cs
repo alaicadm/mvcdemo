@@ -54,7 +54,7 @@ namespace MVCDemo.Views.Forms
             txtLName.Text =  controllerObj.LastName;
             rdbMale.IsChecked = string.IsNullOrWhiteSpace(controllerObj.Gender) == true ? false : controllerObj.Gender == "Male" ? true : false;
             rdbFemale.IsChecked = string.IsNullOrWhiteSpace(controllerObj.Gender) == true ? false : controllerObj.Gender == "Female" ? true : false;
-            txtContactNo.Text = controllerObj.Mobile;
+            txtContactNo.Text = controllerObj.PhoneNumber;
                
         }
 
@@ -109,7 +109,7 @@ namespace MVCDemo.Views.Forms
             controllerObj.Gender = "N/A";
             if (Utils.Utils.ToBool(rdbMale.IsChecked.Value) == true) controllerObj.Gender = "Male";
             if (Utils.Utils.ToBool(rdbFemale.IsChecked.Value) == true) controllerObj.Gender = "Female";
-            controllerObj.Mobile = txtContactNo.Text;
+            controllerObj.PhoneNumber = txtContactNo.Text;
         }
         
     }

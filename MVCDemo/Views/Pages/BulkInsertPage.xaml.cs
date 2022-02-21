@@ -30,6 +30,7 @@ namespace MVCDemo.Views.Pages
         {
             InitializeComponent();
             DisplayRecord();
+            cdt = controllerObj.InitializeDTContactWithID();
             
 
         }
@@ -48,6 +49,9 @@ namespace MVCDemo.Views.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
+        
+
             if(sender == btnNew)
             {
                 ContactBulkCRUDWindow crudNew = new ContactBulkCRUDWindow();
@@ -70,11 +74,22 @@ namespace MVCDemo.Views.Pages
 
             else if (sender == btnDel)
             {
-                controllerObj.dtContactsForDelete = dtContacts;
+                controllerObj.dtContactsForDeleting = selectedContacts();
                 if (controllerObj.BulkDelete(controllerObj))
                 {
-                    MessageBox.Show("Succesfully Deleted!");
-                   
+                    MessageBox.Show("Successfully Delete");
+                    DisplayRecord();
+                }
+            }
+
+            else if (sender == btnUpdate)
+            {
+
+                ContactBulkEditWindow crudEdit = new ContactBulkEditWindow(selectedContacts());
+                crudEdit.ShowDialog();
+                if (crudEdit.DialogResult == true)
+                {
+                    DisplayRecord();
                 }
             }
 
@@ -88,6 +103,11 @@ namespace MVCDemo.Views.Pages
             dgContacts.ItemsSource = dt.DefaultView;
         }
 
+        private void checkBoxClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void checkBoxClicked(object sender, EventArgs e)
         {
             cdt = new DataTable();
@@ -95,7 +115,7 @@ namespace MVCDemo.Views.Pages
             cdt.Columns.Add("FirstName", typeof(string));
             cdt.Columns.Add("MiddleName", typeof(string));
             cdt.Columns.Add("LastName", typeof(string));
-            cdt.Columns.Add("Mobile", typeof(string));
+            cdt.Columns.Add("PhoneNumber", typeof(string));
             cdt.Columns.Add("Gender", typeof(string));
 
             DataRowView row = dgContacts.SelectedItem as DataRowView;
@@ -103,7 +123,7 @@ namespace MVCDemo.Views.Pages
 
         }
 
-        public DataTable selectedDontacts()
+        public DataTable selectedContacts()
         {
             return cdt;
         }

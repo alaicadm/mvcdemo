@@ -26,13 +26,14 @@ namespace MVCDemo.Controllers
             bool complete = Check(data);
             if (complete == true)
             {
-                cmd = new SqlCommand("usp_SaveContact");
+                cmd = new SqlCommand("usp_add_list");
+                cmd.Parameters.AddWithValue("@User_ID", data.User_ID);
                 cmd.Parameters.AddWithValue("@FirstName", data.FirstName);
                 cmd.Parameters.AddWithValue("@MiddleName", data.MiddleName);
                 cmd.Parameters.AddWithValue("@LastName", data.LastName);
-                cmd.Parameters.AddWithValue("@Mobile", data.Mobile);
+                cmd.Parameters.AddWithValue("@PhoneNumber", data.PhoneNumber);
                 cmd.Parameters.AddWithValue("@Gender", data.Gender);
-                MessageBox.Show("Successfully Saved!!!!!!!!");
+                MessageBox.Show("Successfully Saved!");
                 shouldClose = true;
             }
             else
@@ -50,12 +51,12 @@ namespace MVCDemo.Controllers
             bool complete = Check(data);
             if (complete == true)
             {
-                cmd = new SqlCommand("usp_EditContact");
+                cmd = new SqlCommand("usp_update_list");
                 cmd.Parameters.AddWithValue("@User_ID", data.User_ID);
                 cmd.Parameters.AddWithValue("@FirstName", data.FirstName);
                 cmd.Parameters.AddWithValue("@MiddleName", data.MiddleName);
                 cmd.Parameters.AddWithValue("@LastName", data.LastName);
-                cmd.Parameters.AddWithValue("@Mobile", data.Mobile);
+                cmd.Parameters.AddWithValue("@PhoneNumber", data.PhoneNumber);
                 cmd.Parameters.AddWithValue("@Gender", data.Gender);
                 MessageBox.Show("Successfully Saved!!!!!!");
                 shouldClose = true;
@@ -73,7 +74,7 @@ namespace MVCDemo.Controllers
 
         public bool Delete(ContactsController data)
         {
-            cmd = new SqlCommand("usp_DeleteContact");
+            cmd = new SqlCommand("usp_delete_list");
             cmd.Parameters.AddWithValue("@User_ID", data.User_ID);
             return SQLQueries.SqlExecNQDelete(cmd);
             //you can add prompt here or insinde SqlExecNQDelete
@@ -81,7 +82,7 @@ namespace MVCDemo.Controllers
 
         public bool Check(ContactsController data)
         {
-            string[] datalist = { data.FirstName, data.MiddleName, data.LastName, data.Mobile };
+            string[] datalist = { data.FirstName, data.MiddleName, data.LastName, data.PhoneNumber };
             bool res = true;
             
             foreach (string d in datalist)
@@ -103,21 +104,38 @@ namespace MVCDemo.Controllers
         public DataTable InitializeDTContact()
         {
             DataTable dt = new DataTable();
+            dt.Columns.Add("User_ID", typeof(int));
             dt.Columns.Add("FirstName", typeof(string));
             dt.Columns.Add("MiddleName", typeof(string));
             dt.Columns.Add("LastName", typeof(string));
-            dt.Columns.Add("Mobile", typeof(string));
+            dt.Columns.Add("PhoneNumber", typeof(string));
             dt.Columns.Add("Gender", typeof(string));
             return dt;
         }
 
+
+        public DataTable InitializeDTContactWithID()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("User_ID", typeof(int));
+            dt.Columns.Add("FirstName", typeof(string));
+            dt.Columns.Add("MiddleName", typeof(string));
+            dt.Columns.Add("LastName", typeof(string));
+            dt.Columns.Add("PhoneNumber", typeof(string));
+            dt.Columns.Add("Gender", typeof(string));
+            return dt;
+        }
+
+
+
         public DataTable AddToContactsDT(DataTable dtContacts, ContactsController data)
         {
             dtContacts.Rows.Add(
+                data.User_ID,
                 data.FirstName,
                 data.MiddleName,
                 data.LastName,
-                data.Mobile,
+                data.PhoneNumber,
                 data.Gender
                 );
             return dtContacts;
@@ -134,7 +152,7 @@ namespace MVCDemo.Controllers
         public bool BulkDelete(ContactsController data)
         {
             cmd = new SqlCommand("usp_BulkDeleteContact");
-            cmd.Parameters.AddWithValue("@dtContactsForDelete", data.dtContactsForDelete);
+            cmd.Parameters.AddWithValue("@dtContactsForDeleting", data.dtContactsForDeleting);
             return SQLQueries.SqlExecNQDelete(cmd);
         }
 

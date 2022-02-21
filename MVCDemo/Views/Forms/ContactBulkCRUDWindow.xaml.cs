@@ -62,13 +62,14 @@ namespace MVCDemo.Views.Forms
 
         private void PrepareFields()
         {
+
             controllerObj.FirstName = txtFName.Text;
             controllerObj.MiddleName = txtMName.Text;
             controllerObj.LastName = txtLName.Text;
             controllerObj.Gender = "N/A";
             if (Utils.Utils.ToBool(rdbMale.IsChecked.Value) == true) controllerObj.Gender = "Male";
             if (Utils.Utils.ToBool(rdbFemale.IsChecked.Value) == true) controllerObj.Gender = "Female";
-            controllerObj.Mobile = txtContactNo.Text;    
+            controllerObj.PhoneNumber = txtContactNo.Text;    
         }
 
         private void dgContacts_SelectionChanged(object sender, SelectionChangedEventArgs e)

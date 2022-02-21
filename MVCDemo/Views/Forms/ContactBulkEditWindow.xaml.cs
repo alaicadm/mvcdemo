@@ -64,17 +64,7 @@ namespace MVCDemo.Views.Forms
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            /*if (sender == btnAdd)
-            {
-                PrepareFields();
-                dtContacts = controllerObj.AddToContactsDT(dtContacts, controllerObj);
-                txtFName.Clear();
-                txtMName.Clear();
-                txtLName.Clear();
-                txtContactNo.Clear();
-                rdbFemale.IsChecked = false;
-                rdbMale.IsChecked = false;
-            }*/
+        
             if (sender == btnSave)
             {
                 controllerObj.dtContactsForSaving = dtContacts;

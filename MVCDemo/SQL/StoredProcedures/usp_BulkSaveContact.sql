@@ -6,10 +6,11 @@ IF EXISTS (SELECT * FROM sys.types WHERE name = 'type_BulkSave')
 GO
 CREATE TYPE type_BulkSave AS TABLE
 (
+	User_ID			int,
 	FirstName		nvarchar(100),
 	MiddleName		nvarchar(100),
     LastName		nvarchar(100),
-	Mobile		nvarchar(100),
+	Mobile			nvarchar(100),
     Gender			nvarchar(100)    
 )
 GO
@@ -24,11 +25,11 @@ SET XACT_ABORT ON --FORCE ROLLBACK IF RUNTIME ERROR OCCURS
 	BEGIN TRY
 		BEGIN TRANSACTION 
 
-				INSERT INTO Contacts(
+				INSERT INTO PhoneBook(
 										FirstName,
 										MiddleName,
 										LastName,
-										Mobile,
+										PhoneNumber,
 										Gender
 									)
 						SELECT 
