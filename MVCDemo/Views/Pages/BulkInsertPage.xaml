@@ -77,7 +77,7 @@
                 <DataGridTextColumn Header="Middle Name" Binding="{Binding MiddleName}"/>
                 <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
                 <DataGridTextColumn Header="Gender" Binding="{Binding Gender}"/>
-                <DataGridTextColumn Header="Phone Number" Binding="{Binding Mobile}"/>
+                <DataGridTextColumn Header="Mobile" Binding="{Binding Mobile}"/>
             </DataGrid.Columns>
         </DataGrid>
         </Grid>

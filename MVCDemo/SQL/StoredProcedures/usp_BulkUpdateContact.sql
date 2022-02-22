@@ -16,6 +16,7 @@ CREATE TYPE type_BulkUpdate AS TABLE
 GO
 CREATE PROCEDURE	usp_BulkUpdateContact
 (
+	@UserName		nvarchar(100),
 	@dtContactsForUpdating type_BulkUpdate READONLY
 )
 AS
@@ -33,7 +34,9 @@ SET XACT_ABORT ON --FORCE ROLLBACK IF RUNTIME ERROR OCCURS
 							con.MiddleName = dtc.MiddleName,
 							con.LastName = dtc.LastName,
 							con.Mobile = dtc.Mobile,
-							con.Gender = dtc.Gender;
+							con.Gender = dtc.Gender,
+							updatedBy	= @UserName,
+							updatedDateTime = GETDATE();
 
 
 		COMMIT TRANSACTION

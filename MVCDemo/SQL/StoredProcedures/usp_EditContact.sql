@@ -4,12 +4,13 @@ GO
 
 CREATE PROCEDURE	usp_EditContact
 (
-	@UserId				INT,
+	@UserId			INT,
 	@FirstName		nvarchar(255),
 	@MiddleName		nvarchar(255),
 	@LastName		nvarchar(255),
 	@Mobile			nvarchar(255),
-	@Gender			nvarchar(10)
+	@Gender			nvarchar(10),
+	@UserName		nvarchar(100)
 )
 AS
 SET NOCOUNT OFF
@@ -25,7 +26,9 @@ SET NOCOUNT OFF
 					MiddleName	= @MiddleName,
 					LastName	= @LastName,
 					Mobile		= @Mobile,
-					Gender		= @Gender
+					Gender		= @Gender,
+					updatedDateTime = GETDATE(),
+					updatedBy	= @UserName
 					where UserId	= @UserId
 
 			COMMIT TRANSACTION

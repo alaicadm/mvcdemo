@@ -8,7 +8,8 @@ CREATE PROCEDURE	usp_SaveContact
 	@MiddleName		nvarchar(255),
 	@LastName		nvarchar(255),
 	@Mobile			nvarchar(255),
-	@Gender			nvarchar(10)
+	@Gender			nvarchar(10),
+	@UserName		nvarchar(100)
 )
 AS
 SET NOCOUNT OFF
@@ -19,8 +20,8 @@ SET NOCOUNT OFF
 			BEGIN TRANSACTION 
 	
 				----ADD CREATEDBY and CREATEDATETIME(TIMESTAMP)
-					INSERT INTO Contacts(FirstName,MiddleName,LastName,Mobile,Gender)
-					values(@FirstName,@MiddleName,@LastName,@Mobile,@Gender)
+					INSERT INTO Contacts(FirstName,MiddleName,LastName,Mobile,Gender, createdBy)
+					values(@FirstName,@MiddleName,@LastName,@Mobile,@Gender, @UserName)
 
 			COMMIT TRANSACTION
 	END TRY

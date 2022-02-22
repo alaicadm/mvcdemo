@@ -23,6 +23,7 @@ namespace MVCDemo.Views.Forms
         ContactsController controllerObj = new ContactsController();
         BulkInsertPage bulkInsertPage = new BulkInsertPage();
         DataTable dtContacts, dt, cdt;
+        string genderVal;
 
         //private int selectedRec;
         public ContactBulkEditWindow(DataTable cdt)
@@ -83,8 +84,16 @@ namespace MVCDemo.Views.Forms
             }*/
             if (sender == btnSave)
             {
+                
+                foreach (DataRow row in dtContacts.Rows)
+                {
+                    row["Gender"] = genderVal;
+                }
+
 
                 controllerObj.dtContactsForUpdating = dtContacts;
+                
+
                 if (controllerObj.BulkUpdate(controllerObj))
                 {
                     MessageBox.Show("Succesfully Updated!");
@@ -124,6 +133,13 @@ namespace MVCDemo.Views.Forms
             ///add logic here for removing of row in datatable
             DataRowView row = dgContacts.SelectedItem as DataRowView;
             dtContacts.Rows.Remove(row.Row);
+        }
+
+        private void genderSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            genderVal = ((sender as ComboBox).SelectedItem as ComboBoxItem).Content as string;
+           
+
         }
 
         private void rdoGender_Click(object sender, RoutedEventArgs e)

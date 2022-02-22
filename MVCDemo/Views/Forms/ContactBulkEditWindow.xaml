@@ -40,8 +40,8 @@
                     <DataGridTemplateColumn Header="Gender">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <ComboBox  x:Name="genderBox" materialDesign:HintAssist.Hint="{Binding Gender}"
-                                     IsSynchronizedWithCurrentItem = "True" SelectedItem="{Binding Gender, UpdateSourceTrigger=PropertyChanged}">
+                                <ComboBox  x:Name="genderBox" materialDesign:HintAssist.Hint="{Binding Gender}" SelectionChanged="genderSelectionChanged"
+                                     IsSynchronizedWithCurrentItem = "True" SelectedItem="{Binding Gender}">
                                     <ComboBoxItem Content="Male" />
                                     <ComboBoxItem Content="Female"/>
 

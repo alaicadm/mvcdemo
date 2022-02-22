@@ -15,6 +15,7 @@ CREATE TYPE type_BulkSave AS TABLE
 GO
 CREATE PROCEDURE	usp_BulkSaveContact
 (
+	@CreatedBy NVARCHAR(100),
 	@dtContactsForSaving type_BulkSave READONLY
 )
 AS
@@ -30,14 +31,20 @@ SET XACT_ABORT ON --FORCE ROLLBACK IF RUNTIME ERROR OCCURS
 										LastName,
 										Mobile,
 										Gender
+										
 									)
+					
 						SELECT 
 								FirstName,
 								MiddleName,
 								LastName,
 								Mobile,
 								Gender
+
 						FROM @dtContactsForSaving
+
+
+				
 
 		COMMIT TRANSACTION
 	END TRY

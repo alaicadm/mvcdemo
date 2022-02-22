@@ -27,6 +27,7 @@ namespace MVCDemo.Controllers
             if (complete == true)
             {
                 cmd = new SqlCommand("usp_SaveContact");
+                cmd.Parameters.AddWithValue("@UserName", Properties.Settings.Default.DBConnUsername);
                 cmd.Parameters.AddWithValue("@FirstName", data.FirstName);
                 cmd.Parameters.AddWithValue("@MiddleName", data.MiddleName);
                 cmd.Parameters.AddWithValue("@LastName", data.LastName);
@@ -51,6 +52,7 @@ namespace MVCDemo.Controllers
             if (complete == true)
             {
                 cmd = new SqlCommand("usp_EditContact");
+                cmd.Parameters.AddWithValue("@UserName", Properties.Settings.Default.DBConnUsername);
                 cmd.Parameters.AddWithValue("@UserId", data.UserId);
                 cmd.Parameters.AddWithValue("@FirstName", data.FirstName);
                 cmd.Parameters.AddWithValue("@MiddleName", data.MiddleName);
@@ -145,6 +147,7 @@ namespace MVCDemo.Controllers
         public DataTable AddToContactsDT(DataTable dtContacts, ContactsController data)
         {
             dtContacts.Rows.Add(
+                
                 data.FirstName,
                 data.MiddleName,
                 data.LastName,
@@ -157,6 +160,8 @@ namespace MVCDemo.Controllers
         public bool BulkSave(ContactsController data)
         {
             cmd = new SqlCommand("usp_BulkSaveContact");
+            /*cmd.Parameters.AddWithValue("@UserId", data.UserId);
+            cmd.Parameters.AddWithValue("@UserName", Properties.Settings.Default.DBConnUsername);*/
             cmd.Parameters.AddWithValue("@dtContactsForSaving", data.dtContactsForSaving);
             return SQLQueries.SqlExecNQInsert(cmd);
             //you can add prompt here or insinde SQLExecNQInsert
@@ -165,6 +170,7 @@ namespace MVCDemo.Controllers
         public bool BulkUpdate(ContactsController data)
         {
             cmd = new SqlCommand("usp_BulkUpdateContact");
+            cmd.Parameters.AddWithValue("@UserName", Properties.Settings.Default.DBConnUsername);
             cmd.Parameters.AddWithValue("@dtContactsForUpdating", data.dtContactsForUpdating);
             return SQLQueries.SqlExecNQUpdate(cmd);
             //you can add prompt here or insinde SQLExecNQInsert
