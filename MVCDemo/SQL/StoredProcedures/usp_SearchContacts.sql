@@ -12,9 +12,9 @@ BEGIN
 				FirstName,
 				MiddleName,
 				LastName,
-				Mobile,
+				PhoneNumber,
 				Gender 
-		FROM	Contacts
+		FROM	ContactList
 		WHERE	(
 					FirstName like '%'+@Keyword+'%'
 					OR
@@ -22,7 +22,9 @@ BEGIN
 					OR
 					LastName like '%'+@Keyword+'%'
 					OR
-					Mobile like '%'+@Keyword+'%'
+					PhoneNumber like '%'+@Keyword+'%'
+					OR
+					Gender like '%'+@Keyword+'%'
 				)
 				
 END

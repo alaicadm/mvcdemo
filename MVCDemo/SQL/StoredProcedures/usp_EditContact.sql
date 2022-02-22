@@ -8,15 +8,15 @@ CREATE PROCEDURE	usp_EditContact
 	@FirstName		nvarchar(255),
 	@MiddleName		nvarchar(255),
 	@LastName		nvarchar(255),
-	@Mobile			nvarchar(255),
+	@PhoneNumber			nvarchar(255),
 	@Gender			nvarchar(10)
 )
 AS
 SET NOCOUNT OFF
 	
 	BEGIN TRY
-		IF NOT EXISTS (SELECT * FROM Contacts WHERE firstName = @firstName and 
-		middleName = @middleName and lastName = @lastName and gender = @gender and mobile = @mobile)
+		IF NOT EXISTS (SELECT * FROM ContactList WHERE firstName = @firstName and 
+		middleName = @middleName and lastName = @lastName and gender = @gender and PhoneNumber = @PhoneNumber)
 			BEGIN TRANSACTION 
 	
 				----ADD CREATEDBY and CREATEDATETIME(TIMESTAMP)
@@ -24,7 +24,7 @@ SET NOCOUNT OFF
 					FirstName	= @FirstName,
 					MiddleName	= @MiddleName,
 					LastName	= @LastName,
-					Mobile		= @Mobile,
+					Mobile		= @PhoneNumber,
 					Gender		= @Gender
 					where UserId	= @UserId
 

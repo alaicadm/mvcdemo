@@ -1,5 +1,6 @@
 ﻿using MVCDemo.Controllers;
 using MVCDemo.Views.Forms;
+using MVCDemo.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,7 +24,8 @@ namespace MVCDemo.Views.Pages
     {
         ContactsController controllerObj = new ContactsController();
         DataTable dtContacts, dt, cdt;
-       
+        ContactsModel cm = new ContactsModel();
+
 
 
         public BulkInsertPage()
@@ -77,7 +79,7 @@ namespace MVCDemo.Views.Pages
                 controllerObj.dtContactsForDeleting = selectedContacts();
                 if (controllerObj.BulkDelete(controllerObj))
                 {
-                    MessageBox.Show("Successfully Delete");
+                    MessageBox.Show("Successfully Deleted");
                     DisplayRecord();
                 }
             }
@@ -93,8 +95,6 @@ namespace MVCDemo.Views.Pages
                 }
             }
 
-
-
         }
 
         private void DisplayRecord()
@@ -105,13 +105,14 @@ namespace MVCDemo.Views.Pages
 
         private void checkBoxClicked(object sender, RoutedEventArgs e)
         {
-
+            DataRowView row = dgContacts.SelectedItem as DataRowView;
+            cdt.Rows.Add(row.Row.ItemArray);
         }
 
         private void checkBoxClicked(object sender, EventArgs e)
         {
             cdt = new DataTable();
-            cdt.Columns.Add("User_ID", typeof(int));
+            cdt.Columns.Add("UserId", typeof(int));
             cdt.Columns.Add("FirstName", typeof(string));
             cdt.Columns.Add("MiddleName", typeof(string));
             cdt.Columns.Add("LastName", typeof(string));

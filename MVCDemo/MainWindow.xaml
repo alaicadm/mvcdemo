@@ -7,23 +7,23 @@
         xmlns:local="clr-namespace:MVCDemo"
         mc:Ignorable="d"
         Title="Main Menu" Height="450" Width="900" WindowStyle="None" Background="{x:Null}" WindowStartupLocation="CenterScreen">
-    
-    <materialDesign:Card UniformCornerRadius="5">
+
+    <materialDesign:Card UniformCornerRadius="15" Background="#7CB342">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Grid Background="{StaticResource PrimaryHueDarkBrush}">
+            <Grid Background="#7CB342" Margin="10,10,0,10" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="30"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="120"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Image Grid.ColumnSpan="2" Source="{StaticResource contactIcon}" Height="55"/>
+               
 
                 <Grid Grid.Row="1" Grid.ColumnSpan="2">
                     <Grid.ColumnDefinitions>
@@ -32,24 +32,24 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel>
                         <ListView>
-                            <ListViewItem x:Name="lviCRUD" MouseUp="lvi_MouseUp" Foreground="White" Content="Records"/>
-                            <ListViewItem x:Name="lviBulkInsert" MouseUp="lvi_MouseUp" Foreground="White" Content="Bulk CRUD"/>
-                            <ListViewItem x:Name="lviHelp" MouseUp="lvi_MouseUp" Foreground="White" Content="Help"/>
-                            <ListViewItem x:Name="lviLogout" MouseUp="lvi_MouseUp" Foreground="White" Content="Logout"/>
+                            <ListViewItem x:Name="lviCRUD" MouseUp="lvi_MouseUp" Foreground="White" FontFamily="helvetica" FontSize="18"  Content="Records"/>
+                            <ListViewItem x:Name="lviBulkInsert" MouseUp="lvi_MouseUp" Foreground="White" FontFamily="helvetica" FontSize="18" Content="Bulk CRUD"/>
+                            <ListViewItem x:Name="lviHelp" MouseUp="lvi_MouseUp" Foreground="White" FontFamily="helvetica" FontSize="18" Content="Help"/>
+                            <ListViewItem x:Name="lviLogout" MouseUp="lvi_MouseUp" Foreground="White" FontFamily="helvetica" FontSize="18" Content="Logout"/>
                         </ListView>
                     </StackPanel>
                 </Grid>
             </Grid>
 
-            <Grid Grid.Column="1">
+            <Grid Grid.Column="1" Background="#DCEDC8">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="35"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="35"/>
                 </Grid.RowDefinitions>
-                <Rectangle Fill="{StaticResource PrimaryHueDarkForegroundBrush}"/>
-                <TextBlock x:Name="txtTitleBlock" FontWeight="Bold" Margin="3" Text="HOME" Style="{StaticResource MaterialDesignBody1TextBlock}"/>
-                <Frame Grid.Row="1" x:Name="MainFrame" IsTabStop="False" NavigationUIVisibility="Hidden"/>
+                <Rectangle Fill="white"/>
+                <TextBlock x:Name="txtTitleBlock"  Background="#DCEDC8" Style="{StaticResource MaterialDesignBody1TextBlock}"/>
+                <Frame Grid.Row="1" x:Name="MainFrame" IsTabStop="False" NavigationUIVisibility="Hidden" Background="#DCEDC8"/>
             </Grid>
         </Grid>
     </materialDesign:Card>

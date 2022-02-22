@@ -1,0 +1,2 @@
+﻿ALTER TABLE ContactList
+ADD CreatedBy NVARCHAR(100)

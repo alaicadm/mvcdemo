@@ -9,10 +9,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Bulk Insert">
 
-    <Grid Background="white">
+    <Grid Background="white" >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="13*"/>
-            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="208*"/>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="157*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
@@ -20,7 +21,7 @@
             <RowDefinition Height="35"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Background="green" RenderTransformOrigin="0.533,0.378" Margin="0,-38,0,0" Grid.ColumnSpan="2">
+        <StackPanel Orientation="Horizontal" Background="#C5E1A5" RenderTransformOrigin="0.533,0.378" Margin="0,-38,0,0" Grid.ColumnSpan="3">
             <Grid RenderTransformOrigin="0.5,0.5" Width="276">
                 <Grid.RenderTransform>
                     <TransformGroup>
@@ -37,6 +38,7 @@
                 </Grid.ColumnDefinitions>
                 <Button x:Name="btnNew" Grid.Column="0" Click="Button_Click" 
                         Margin="7,11,88,11"
+                        Background="#689F38"
                         Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.ColumnSpan="2">
                     <Button.Content>
                         <StackPanel Orientation="Horizontal">
@@ -47,6 +49,7 @@
                 </Button>
                 <Button x:Name="btnUpdate" Grid.Column="1" Click="Button_Click" 
                         Margin="20,11,83,11"
+                        Background="#689F38"
                         Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Grid.ColumnSpan="2">
                     <Button.Content>
                         <StackPanel Orientation="Horizontal">
@@ -59,6 +62,7 @@
 
                 <Button x:Name="btnDel" Grid.Column="2" Click="Button_Click" 
                         Margin="23,11,-30,11"
+                        Background="#689F38"
                         Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}">
                     <Button.Content>
                         <StackPanel Orientation="Horizontal">
@@ -72,9 +76,11 @@
             </Grid>
 
         </StackPanel>
-        <DataGrid x:Name="dgContacts" IsReadOnly="True" CanUserAddRows="False" Background="white" BorderThickness="0"
+        <DataGrid x:Name="dgContacts" IsReadOnly="True" CanUserAddRows="False" Background="white" BorderThickness="0" 
+                   SelectionMode="Extended" 
+                  EnableColumnVirtualization="False" EnableRowVirtualization="False"
                   
-                  SelectionUnit="FullRow" AutoGenerateColumns="False" SelectionChanged="dgContacts_SelectionChanged" Grid.Row="1" Margin="10,47,10,0" Grid.ColumnSpan="2">
+                  SelectionUnit="FullRow" AutoGenerateColumns="False" SelectionChanged="dgContacts_SelectionChanged" Grid.Row="1" Margin="10,47,10,0" Grid.ColumnSpan="3">
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
@@ -89,7 +95,7 @@
                 </DataGridTemplateColumn>
 
 
-                <DataGridTextColumn Header="ID" Binding="{Binding User_ID}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding UserId}"/>
                 <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
                 <DataGridTextColumn Header="Middle Name" Binding="{Binding MiddleName}"/>
                 <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>

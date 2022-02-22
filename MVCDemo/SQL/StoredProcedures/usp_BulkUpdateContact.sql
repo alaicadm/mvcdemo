@@ -1,10 +1,10 @@
-﻿IF EXISTS (SELECT * FROM sys.procedures WHERE name = 'usp_BulkDeleteContact')
-	DROP PROCEDURE usp_BulkDeleteContact
+﻿IF EXISTS (SELECT * FROM sys.procedures WHERE name = 'usp_BulkUpdateContact')
+	DROP PROCEDURE usp_BulkUpdateContact
 GO
-IF EXISTS (SELECT * FROM sys.types WHERE name = 'type_BulkDelete')
-	DROP TYPE type_BulkDelete
+IF EXISTS (SELECT * FROM sys.types WHERE name = 'type_BulkUpdate')
+	DROP TYPE type_BulkUpdate
 GO
-CREATE TYPE type_BulkDelete AS TABLE
+CREATE TYPE type_BulkUpdate AS TABLE
 (
 	UserId			int,
 	FirstName		nvarchar(100),
@@ -14,9 +14,9 @@ CREATE TYPE type_BulkDelete AS TABLE
     Gender			nvarchar(100)    
 )
 GO
-CREATE PROCEDURE	usp_BulkDeleteContact
+CREATE PROCEDURE	usp_BulkUpdateContact
 (
-	@dtContactsForDeleting type_BulkDelete READONLY
+	@dtContactsForUpdating type_BulkUpdate READONLY
 )
 AS
 SET NOCOUNT OFF
@@ -24,10 +24,17 @@ SET XACT_ABORT ON --FORCE ROLLBACK IF RUNTIME ERROR OCCURS
 	
 	BEGIN TRY
 		BEGIN TRANSACTION 
-
 				
-				DELETE FROM ContactList
-				WHERE UserId in (SELECT UserId FROM @dtContactsForDeleting)
+				MERGE INTO ContactList con
+				USING @dtContactsForUpdating dtc
+				ON con.UserId = dtc.UserId
+				WHEN MATCHED THEN
+				UPDATE SET	con.FirstName = dtc.FirstName,
+							con.MiddleName = dtc.MiddleName,
+							con.LastName = dtc.LastName,
+							con.PhoneNumber = dtc.PhoneNumber,
+							con.Gender = dtc.Gender;
+
 
 		COMMIT TRANSACTION
 	END TRY

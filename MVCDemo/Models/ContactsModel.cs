@@ -7,7 +7,7 @@ namespace MVCDemo.Models
 {
     public class ContactsModel
     {
-        public int User_ID { get; set; }
+        public int UserId { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
@@ -16,5 +16,6 @@ namespace MVCDemo.Models
         public DataTable dtContactsForSaving { get; set; }
         public DataTable dtContactsForDeleting { get; set; }
         public DataTable dtContactsForUpdating { get; set; }
+        public int isChecked { get; set; }
     }
 }

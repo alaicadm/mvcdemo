@@ -9,14 +9,14 @@
       d:DesignHeight="450" d:DesignWidth="900"
       Title="ContactPage">
 
-    <Grid Background="White" Margin="3">
+    <Grid Background="#DCEDC8" Margin="3">
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Margin="3 0 0 0">
-            <Button x:Name="btnNew"  Click="Button_Click" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}">
+            <Button x:Name="btnNew"  Click="Button_Click" Background="#689F38" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Width="89">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Add" Margin="0 5 0 0"/>
@@ -24,7 +24,7 @@
                     </StackPanel>
                 </Button.Content>
             </Button>
-            <Button x:Name="btnEdit" Click="Button_Click" Margin="3 0 0 0" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}">
+            <Button x:Name="btnEdit" Click="Button_Click" Margin="3 0 0 0" Background="#689F38" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Edit" Margin="0 5 0 0"/>
@@ -32,7 +32,7 @@
                     </StackPanel>
                 </Button.Content>
             </Button>
-            <Button x:Name="btnDelete" Click="Button_Click" Margin="3 0 0 0" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}">
+            <Button x:Name="btnDelete" Click="Button_Click" Margin="3 0 0 0" Background="#689F38" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="TrashCan" Margin="0 5 0 0"/>
@@ -40,7 +40,7 @@
                     </StackPanel>
                 </Button.Content>
             </Button>
-            <Button x:Name="btnView" Click="Button_Click" Margin="3 0 0 0" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}">
+            <Button x:Name="btnView" Click="Button_Click" Margin="3 0 0 0" Background="#689F38" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Magnify" Margin="0 5 0 0"/>
@@ -50,12 +50,12 @@
             </Button>
             
             <TextBox x:Name="txtSearch" KeyDown="txtSearch_KeyDown" Width="200" Margin="3 0 0 0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignTextBoxBase}" materialDesign:HintAssist.Hint="Search"/>
-            <Button x:Name="btnSearch" Margin="3 0 0 0" Content="Search" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Click="Button_Click"/>
+            <Button x:Name="btnSearch" BorderThickness="0" Background="#AED581" Content="Search" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Click="Button_Click"/>
         </StackPanel>
 
-        <DataGrid  Margin="3" x:Name="dgContacts" AutoGenerateColumns="False" Grid.Row="1" Style="{StaticResource MaterialDesignDataGrid}" IsReadOnly="True" SelectionChanged="dgContacts_SelectionChanged">
+        <DataGrid  Margin="3,3,10,3" x:Name="dgContacts" AutoGenerateColumns="False" Grid.Row="1" Style="{StaticResource MaterialDesignDataGrid}" IsReadOnly="True" SelectionChanged="dgContacts_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding User_ID}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding UserId}"/>
                 <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
                 <DataGridTextColumn Header="Middle Name" Binding="{Binding MiddleName}"/>
                 <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>

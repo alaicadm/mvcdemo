@@ -29,7 +29,7 @@
             </Button>
             
 
-            <DataGrid Grid.Row="1" x:Name="dgContacts" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dgContacts_SelectionChanged" Margin="10">
+            <DataGrid Grid.Row="1" x:Name="dgContacts" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dgContacts_SelectionChanged" Margin="10,10,10,39">
                 <DataGrid.Columns>
                    
 
@@ -50,11 +50,11 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Phone Number" Binding="{Binding Mobile}"/>
+                    <DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}"/>
                 </DataGrid.Columns>
             </DataGrid>
 
-            <Button x:Name="btnSave" Click="Button_Click" Content="SAVE" Grid.Row="8" Width="150" HorizontalAlignment="Right" Margin="0 3 10 0"/>
+            <Button x:Name="btnUpdate" Click="Button_Click" Content="UPDATE" Grid.Row="7" Width="150" HorizontalAlignment="Right" Margin="0 3 10 0" Background="#689F38" Foreground="White"/>
 
         </Grid>
     </materialDesign:Card>

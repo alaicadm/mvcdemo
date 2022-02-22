@@ -11,7 +11,7 @@
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True" Background="{x:Null}">
 
-    <materialDesign:Card UniformCornerRadius="20" materialDesign:ShadowAssist.ShadowDepth="Depth2" Background="{StaticResource MaterialDesignPaper}">
+    <materialDesign:Card UniformCornerRadius="15" materialDesign:ShadowAssist.ShadowDepth="Depth2" Background="{StaticResource MaterialDesignPaper}">
         <Grid>
             <Grid.ColumnDefinitions/>
             <Grid.RowDefinitions>
@@ -23,6 +23,9 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
             <Button x:Name="btnClose" Click="Button_Click" Width="50" HorizontalAlignment="Right" Background="{x:Null}" BorderThickness="0">
@@ -40,7 +43,7 @@
                 <RadioButton x:Name="rdbMale" Content="Male" Click="rdoGender_Click"/>
                 <RadioButton x:Name="rdbFemale" Content="Female" Click="rdoGender_Click"/>
             </StackPanel>
-            <Button x:Name="btnAdd" Grid.Row="6" Width="100" Click="Button_Click">
+            <Button x:Name="btnAdd" Grid.Row="6" Width="100" Click="Button_Click" Background="#689F38">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Plus" Margin="0 6 0 0"/>
@@ -49,7 +52,7 @@
                 </Button.Content>
             </Button>
 
-            <DataGrid Grid.Row="7" x:Name="dgContacts" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dgContacts_SelectionChanged" Margin="10">
+            <DataGrid Grid.Row="7" x:Name="dgContacts" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="dgContacts_SelectionChanged" Margin="10,10,10,0" Background="#DCEDC8" Foreground="black" Grid.RowSpan="2" >
                 <DataGrid.Columns>
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
@@ -65,16 +68,16 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    
+
                     <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
                     <DataGridTextColumn Header="Middle Name" Binding="{Binding MiddleName}"/>
                     <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
                     <DataGridTextColumn Header="Gender" Binding="{Binding Gender}"/>
-                    <DataGridTextColumn Header="Phone Number" Binding="{Binding Mobile}"/>
+                    <DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}"/>
                 </DataGrid.Columns>
             </DataGrid>
 
-            <Button x:Name="btnSave" Click="Button_Click" Content="SAVE" Grid.Row="8" Width="150" HorizontalAlignment="Right" Margin="0 3 10 0"/>
+            <Button x:Name="btnSave" Click="Button_Click" Content="SAVE" Grid.Row="10" Width="150" HorizontalAlignment="Left" Margin="525,0,0,8" Background="#689F38" Foreground="white" BorderThickness="0"/>
 
         </Grid>
     </materialDesign:Card>

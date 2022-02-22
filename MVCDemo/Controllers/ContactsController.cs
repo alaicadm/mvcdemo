@@ -16,7 +16,7 @@ namespace MVCDemo.Controllers
         public DataTable GetContacts(string keyword)
         {
             keyword = string.IsNullOrWhiteSpace(keyword) == false ? keyword : "";
-            cmd = new SqlCommand("usp_read_list");
+            cmd = new SqlCommand("usp_SearchContacts");
             cmd.Parameters.AddWithValue("@Keyword",keyword);
             DataTable dt = SQLQueries.SqlExecReaderWithParams(cmd);
             return dt;
@@ -27,7 +27,7 @@ namespace MVCDemo.Controllers
             if (complete == true)
             {
                 cmd = new SqlCommand("usp_add_list");
-                cmd.Parameters.AddWithValue("@User_ID", data.User_ID);
+                cmd.Parameters.AddWithValue("@UserId", data.UserId);
                 cmd.Parameters.AddWithValue("@FirstName", data.FirstName);
                 cmd.Parameters.AddWithValue("@MiddleName", data.MiddleName);
                 cmd.Parameters.AddWithValue("@LastName", data.LastName);
@@ -52,13 +52,13 @@ namespace MVCDemo.Controllers
             if (complete == true)
             {
                 cmd = new SqlCommand("usp_update_list");
-                cmd.Parameters.AddWithValue("@User_ID", data.User_ID);
+                cmd.Parameters.AddWithValue("@UserId", data.UserId);
                 cmd.Parameters.AddWithValue("@FirstName", data.FirstName);
                 cmd.Parameters.AddWithValue("@MiddleName", data.MiddleName);
                 cmd.Parameters.AddWithValue("@LastName", data.LastName);
                 cmd.Parameters.AddWithValue("@PhoneNumber", data.PhoneNumber);
                 cmd.Parameters.AddWithValue("@Gender", data.Gender);
-                MessageBox.Show("Successfully Saved!!!!!!");
+                MessageBox.Show("Successfully Saved!");
                 shouldClose = true;
             }
             else
@@ -69,15 +69,15 @@ namespace MVCDemo.Controllers
 
             return SQLQueries.SqlExecNQUpdate(cmd);
 
-            //you can add prompt here or insinde SqlExecNQUpdate
+           
         }
 
         public bool Delete(ContactsController data)
         {
             cmd = new SqlCommand("usp_delete_list");
-            cmd.Parameters.AddWithValue("@User_ID", data.User_ID);
+            cmd.Parameters.AddWithValue("@UserId", data.UserId);
             return SQLQueries.SqlExecNQDelete(cmd);
-            //you can add prompt here or insinde SqlExecNQDelete
+           
         }
 
         public bool Check(ContactsController data)
@@ -98,13 +98,12 @@ namespace MVCDemo.Controllers
 
         private bool shouldClose;
 
-        //for the dialogbox
         public bool closeD { get { return shouldClose; } set { shouldClose = value; } }
 
         public DataTable InitializeDTContact()
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("User_ID", typeof(int));
+            dt.Columns.Add("UserId", typeof(int));
             dt.Columns.Add("FirstName", typeof(string));
             dt.Columns.Add("MiddleName", typeof(string));
             dt.Columns.Add("LastName", typeof(string));
@@ -117,7 +116,7 @@ namespace MVCDemo.Controllers
         public DataTable InitializeDTContactWithID()
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("User_ID", typeof(int));
+            dt.Columns.Add("UserId", typeof(int));
             dt.Columns.Add("FirstName", typeof(string));
             dt.Columns.Add("MiddleName", typeof(string));
             dt.Columns.Add("LastName", typeof(string));
@@ -127,11 +126,31 @@ namespace MVCDemo.Controllers
         }
 
 
+        public DataTable InitializeDTContactWithCheckbox()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("UserId", typeof(int));
+            dt.Columns.Add("FirstName", typeof(string));
+            dt.Columns.Add("MiddleName", typeof(string));
+            dt.Columns.Add("LastName", typeof(string));
+            dt.Columns.Add("PhoneNumber", typeof(string));
+            dt.Columns.Add("Gender", typeof(string));
+            return dt;
+        }
+
+        public DataTable InitializeDTContactUserID()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("UserId", typeof(int));
+            return dt;
+        }
+
+
 
         public DataTable AddToContactsDT(DataTable dtContacts, ContactsController data)
         {
             dtContacts.Rows.Add(
-                data.User_ID,
+                data.UserId,
                 data.FirstName,
                 data.MiddleName,
                 data.LastName,
@@ -146,7 +165,6 @@ namespace MVCDemo.Controllers
             cmd = new SqlCommand("usp_BulkSaveContact");
             cmd.Parameters.AddWithValue("@dtContactsForSaving", data.dtContactsForSaving);
             return SQLQueries.SqlExecNQInsert(cmd);
-            //you can add prompt here or insinde SQLExecNQInsert
         }
 
         public bool BulkDelete(ContactsController data)
@@ -155,6 +173,15 @@ namespace MVCDemo.Controllers
             cmd.Parameters.AddWithValue("@dtContactsForDeleting", data.dtContactsForDeleting);
             return SQLQueries.SqlExecNQDelete(cmd);
         }
+
+        public bool BulkUpdate(ContactsController data)
+        {
+            cmd = new SqlCommand("usp_BulkUpdateContact");
+            cmd.Parameters.AddWithValue("@UserName", Properties.Settings.Default.DBConnUsername);
+            cmd.Parameters.AddWithValue("@dtContactsForUpdating", data.dtContactsForUpdating);
+            return SQLQueries.SqlExecNQUpdate(cmd);
+        }
+
 
     }
 }

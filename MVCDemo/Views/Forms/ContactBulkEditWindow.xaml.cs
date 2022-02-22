@@ -21,7 +21,7 @@ namespace MVCDemo.Views.Forms
     {
         ContactsController controllerObj = new ContactsController();
         DataTable dtContacts, dt;
-        //private int selectedRec;
+        string genderVal;
         public ContactBulkEditWindow(DataTable cdt)
         {
             InitializeComponent();
@@ -31,10 +31,7 @@ namespace MVCDemo.Views.Forms
             ContentsFromRecord();
             
         }
-        /*private void DisplayRecord()
-        {
-            dgContacts.ItemsSource = dtContacts.DefaultView;
-        }*/
+       
 
         private void DisplayRecord(DataTable cdt)
         {
@@ -55,39 +52,66 @@ namespace MVCDemo.Views.Forms
         }
         private void ContentsFromRecord()
         {
-            /*txtFName.Text = (string)((DataRowView)dgContacts.SelectedItem).Row[1];
-            txtMName.Text = (string)((DataRowView)dgContacts.SelectedItem).Row[2];
-            txtLName.Text = (string)((DataRowView)dgContacts.SelectedItem).Row[3];
-            txtContactNo.Text = (string)((DataRowView)dgContacts.SelectedItem).Row[4];*/
+            
 
         }
 
+
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-        
-            if (sender == btnSave)
+
+          
+            if (sender == btnUpdate)
             {
-                controllerObj.dtContactsForSaving = dtContacts;
-                if (controllerObj.BulkSave(controllerObj))
+
+                foreach (DataRow row in dtContacts.Rows)
                 {
-                    MessageBox.Show("Succesfully Added!");
+                    row["Gender"] = genderVal;
+                }
+
+
+                controllerObj.dtContactsForUpdating = dtContacts;
+
+
+                if (controllerObj.BulkUpdate(controllerObj))
+                {
+                    MessageBox.Show("Succesfully Updated!");
                     this.DialogResult = true;
+                    //this.Close();
+
+
 
                 }
             }
             else if (sender == btnClose)
                 this.Close();
+            dtContacts.Clear();
+
         }
+
+
+
+
+        private void genderSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            genderVal = ((sender as ComboBox).SelectedItem as ComboBoxItem).Content as string;
+
+
+        }
+
+
+
+
+
+
+
+
+
 
         private void PrepareFields()
         {
-            /*controllerObj.FirstName = txtFName.Text;
-            controllerObj.MiddleName = txtMName.Text;
-            controllerObj.LastName = txtLName.Text;
-            controllerObj.Gender = "N/A";
-            if (Utils.Utils.ToBool(rdbMale.IsChecked.Value) == true) controllerObj.Gender = "Male";
-            if (Utils.Utils.ToBool(rdbFemale.IsChecked.Value) == true) controllerObj.Gender = "Female";
-            controllerObj.Mobile = txtContactNo.Text;*/
+            
         }
 
         private void dgContacts_SelectionChanged(object sender, SelectionChangedEventArgs e)

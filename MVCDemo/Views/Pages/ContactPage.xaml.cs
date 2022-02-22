@@ -60,7 +60,7 @@ namespace MVCDemo.Views.Pages
                 try
                 {
                     int selectedId = (int)((DataRowView)dgContacts.SelectedItem).Row[0];
-                    controllerObj.User_ID = selectedId;
+                    controllerObj.UserId = selectedId;
 
                     bool res = controllerObj.Delete(controllerObj);
                     if (res)
@@ -99,7 +99,7 @@ namespace MVCDemo.Views.Pages
             DataRowView drv = dgContacts.SelectedItem as DataRowView;
             if (drv != null)
             {
-                controllerObj.User_ID = Utils.Utils.ToInt(drv["User_ID"]);
+                controllerObj.UserId = Utils.Utils.ToInt(drv["UserId"]);
                 controllerObj.FirstName = drv["FirstName"].ToString();
                 controllerObj.MiddleName = drv["MiddleName"].ToString();
                 controllerObj.LastName = drv["LastName"].ToString();
