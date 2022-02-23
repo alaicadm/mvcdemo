@@ -7,8 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="people.png" />
     <None Remove="Resources\Images\c_sharp.png" />
     <None Remove="Resources\Images\DBIcon.png" />
+    <None Remove="Views\biotechnology.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,8 +35,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="people.png" />
     <Resource Include="Resources\Images\c_sharp.png" />
     <Resource Include="Resources\Images\DBIcon.png" />
+    <Resource Include="Views\biotechnology.png" />
   </ItemGroup>
 
 </Project>

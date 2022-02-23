@@ -63,16 +63,7 @@ namespace MVCDemo.Views.Pages
                     DisplayRecord();
                 }
             }
-            else if (sender == btnUpdate)
-            {
-                
-                ContactBulkEditWindow crudEdit = new ContactBulkEditWindow(cdt);
-                crudEdit.ShowDialog();
-                if (crudEdit.DialogResult == true)
-                {
-                    DisplayRecord();
-                }
-            }
+          
 
             else if (sender == btnDel)
             {

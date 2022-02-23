@@ -61,7 +61,7 @@
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
                                             <materialDesign:PackIcon Kind="Trash" Margin="0 6 0 0"/>
-                                            <Label Content="Remove" Foreground="White"/>
+                                            <Label Content="Remove" Foreground="Black"/>
                                         </StackPanel>
                                     </Button.Content>
                                 </Button>

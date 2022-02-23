@@ -13,6 +13,7 @@ namespace MVCDemo.Models
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
         public string Gender { get; set; }
+        public string CreatedBy { get; set; }
         public DataTable dtContactsForSaving { get; set; }
         public DataTable dtContactsForDeleting { get; set; }
         public DataTable dtContactsForUpdating { get; set; }

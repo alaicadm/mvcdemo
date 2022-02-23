@@ -20,7 +20,7 @@ namespace MVCDemo.Views.Forms
     public partial class ContactBulkEditWindow : Window
     {
         ContactsController controllerObj = new ContactsController();
-        DataTable dtContacts, dt;
+        DataTable dtContacts, dt, cdt;
         string genderVal;
         public ContactBulkEditWindow(DataTable cdt)
         {
@@ -29,6 +29,7 @@ namespace MVCDemo.Views.Forms
             //dtContacts = controllerObj.InitializeDTContact();
             DisplayRecord(cdt);
             ContentsFromRecord();
+            dtContacts = cdt;
             
         }
        
@@ -61,15 +62,9 @@ namespace MVCDemo.Views.Forms
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-          
-            if (sender == btnUpdate)
+            
+            if (sender == btnSave)
             {
-
-                foreach (DataRow row in dtContacts.Rows)
-                {
-                    row["Gender"] = genderVal;
-                }
-
 
                 controllerObj.dtContactsForUpdating = dtContacts;
 
@@ -78,35 +73,15 @@ namespace MVCDemo.Views.Forms
                 {
                     MessageBox.Show("Succesfully Updated!");
                     this.DialogResult = true;
-                    //this.Close();
-
-
-
+                    
                 }
             }
             else if (sender == btnClose)
                 this.Close();
-            dtContacts.Clear();
-
-        }
-
-
-
-
-        private void genderSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            genderVal = ((sender as ComboBox).SelectedItem as ComboBoxItem).Content as string;
+                dtContacts.Clear();
 
 
         }
-
-
-
-
-
-
-
-
 
 
         private void PrepareFields()
@@ -125,6 +100,20 @@ namespace MVCDemo.Views.Forms
             DataRowView row = dgContacts.SelectedItem as DataRowView;
             dtContacts.Rows.Remove(row.Row);
         }
+
+
+
+        private void genderSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            string genderVal = ((sender as ComboBox).SelectedItem as ComboBoxItem).Content as string;
+            DataRowView row = dgContacts.CurrentItem as DataRowView;
+            row["Gender"] = genderVal;
+
+
+        }
+
+
 
         private void rdoGender_Click(object sender, RoutedEventArgs e)
         {

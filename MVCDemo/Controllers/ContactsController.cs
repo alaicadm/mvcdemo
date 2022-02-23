@@ -11,6 +11,12 @@ namespace MVCDemo.Controllers
 {
     public class ContactsController:ContactsModel
     {
+
+        public ContactsController()
+        {
+            this.CreatedBy = "Gian";
+        }
+
         static SqlCommand cmd = new SqlCommand();
 
         public DataTable GetContacts(string keyword)
@@ -26,7 +32,7 @@ namespace MVCDemo.Controllers
             bool complete = Check(data);
             if (complete == true)
             {
-                cmd = new SqlCommand("usp_add_list");
+                cmd = new SqlCommand("usp_SaveContact");
                 cmd.Parameters.AddWithValue("@UserId", data.UserId);
                 cmd.Parameters.AddWithValue("@FirstName", data.FirstName);
                 cmd.Parameters.AddWithValue("@MiddleName", data.MiddleName);
@@ -74,7 +80,7 @@ namespace MVCDemo.Controllers
 
         public bool Delete(ContactsController data)
         {
-            cmd = new SqlCommand("usp_delete_list");
+            cmd = new SqlCommand("usp_DeleteContact");
             cmd.Parameters.AddWithValue("@UserId", data.UserId);
             return SQLQueries.SqlExecNQDelete(cmd);
            
@@ -164,6 +170,7 @@ namespace MVCDemo.Controllers
         {
             cmd = new SqlCommand("usp_BulkSaveContact");
             cmd.Parameters.AddWithValue("@dtContactsForSaving", data.dtContactsForSaving);
+            cmd.Parameters.AddWithValue("@CreatedBy", data.CreatedBy);
             return SQLQueries.SqlExecNQInsert(cmd);
         }
 
@@ -171,6 +178,7 @@ namespace MVCDemo.Controllers
         {
             cmd = new SqlCommand("usp_BulkDeleteContact");
             cmd.Parameters.AddWithValue("@dtContactsForDeleting", data.dtContactsForDeleting);
+            //cmd.Parameters.AddWithValue("@VoidedBy", data.CreatedBy);
             return SQLQueries.SqlExecNQDelete(cmd);
         }
 
@@ -181,6 +189,7 @@ namespace MVCDemo.Controllers
             cmd.Parameters.AddWithValue("@dtContactsForUpdating", data.dtContactsForUpdating);
             return SQLQueries.SqlExecNQUpdate(cmd);
         }
+
 
 
     }

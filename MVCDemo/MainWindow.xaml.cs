@@ -63,7 +63,6 @@ namespace MVCDemo
                 {
                     MainFrame.NavigationService.Navigated += NavServiceOnNavigated;
                     MainFrame.Navigate(new ContactPage());
-                    txtTitleBlock.Text = "CONTACT RECORDS";
                     //MainFrame.NavigationService.RemoveBackEntry();
                 }
                 else if (sender == lviBulkInsert)
@@ -79,13 +78,7 @@ namespace MVCDemo
                     txtTitleBlock.Text = "HELP SECTION";
                     //MainFrame.NavigationService.RemoveBackEntry();
                 }
-                else if (sender == lviLogout)
-                {
-                    DBConnectionWindow dbcw = new DBConnectionWindow();
-                    dbcw.Show();
-                    this.Close();
-                    
-                }
+                
                    
             }
             catch (Exception)

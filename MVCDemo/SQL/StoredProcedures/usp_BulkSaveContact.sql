@@ -16,28 +16,40 @@ CREATE TYPE type_BulkSave AS TABLE
 GO
 CREATE PROCEDURE	usp_BulkSaveContact
 (
-	@dtContactsForSaving type_BulkSave READONLY
+	@dtContactsForSaving type_BulkSave READONLY,
+	@CreatedBy nvarchar(100) 
+
+
+
 )
+
+
 AS
 SET NOCOUNT OFF
 SET XACT_ABORT ON --FORCE ROLLBACK IF RUNTIME ERROR OCCURS
 	
 	BEGIN TRY
 		BEGIN TRANSACTION 
+				
 
 				INSERT INTO ContactList(
 										FirstName,
 										MiddleName,
 										LastName,
 										PhoneNumber,
-										Gender
+										Gender,
+										CreatedBy,
+										CreateDateTime
 									)
 						SELECT 
 								FirstName,
 								MiddleName,
 								LastName,
 								Mobile,
-								Gender
+								Gender,
+								@CreatedBy,
+								GETDATE()
+								
 
 						FROM @dtContactsForSaving
 

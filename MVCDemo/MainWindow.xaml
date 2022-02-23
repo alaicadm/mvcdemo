@@ -9,33 +9,55 @@
         Title="Main Menu" Height="450" Width="900" WindowStyle="None" Background="{x:Null}" WindowStartupLocation="CenterScreen">
 
     <materialDesign:Card UniformCornerRadius="15" Background="#7CB342">
+
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Grid Background="#7CB342" Margin="10,10,0,10" >
+
+
+            <Grid Background="#7CB342" >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+
+
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="120"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="300"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-               
+
 
                 <Grid Grid.Row="1" Grid.ColumnSpan="2">
                     <Grid.ColumnDefinitions>
                         <!--<ColumnDefinition Width="auto"/>-->
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
+
+
+
                     <StackPanel>
+
+                        <Image Grid.Row="1" Margin="0 0 0 10" Height="80" RenderOptions.BitmapScalingMode="HighQuality" Source="/people.png"  />
+
+
+
+                        <!--<Image Grid.Row="1" RenderTransformOrigin="0.508,0.326" Height="70" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Image.Source>
+                                <BitmapImage  UriSource="/Resources/Images/people.png" />
+                            </Image.Source>
+                        </Image>-->
+
                         <ListView>
-                            <ListViewItem x:Name="lviCRUD" MouseUp="lvi_MouseUp" Foreground="White" FontFamily="helvetica" FontSize="18"  Content="Records"/>
-                            <ListViewItem x:Name="lviBulkInsert" MouseUp="lvi_MouseUp" Foreground="White" FontFamily="helvetica" FontSize="18" Content="Bulk CRUD"/>
-                            <ListViewItem x:Name="lviHelp" MouseUp="lvi_MouseUp" Foreground="White" FontFamily="helvetica" FontSize="18" Content="Help"/>
-                            <ListViewItem x:Name="lviLogout" MouseUp="lvi_MouseUp" Foreground="White" FontFamily="helvetica" FontSize="18" Content="Logout"/>
+                            <ListViewItem  Height="30"/>
+                            <ListViewItem x:Name="lviCRUD" MouseUp="lvi_MouseUp" Foreground="White" FontSize="20" FontWeight="Light"  Content="Add Records"/>
+                            <ListViewItem x:Name="lviBulkInsert" MouseUp="lvi_MouseUp" Foreground="White" FontSize="20" FontWeight="Light" Content="Bulk Records"/>
+                            <ListViewItem x:Name="lviHelp" MouseUp="lvi_MouseUp" Foreground="White" FontSize="20" FontWeight="Light" Content="Settings"/>
+                            <ListViewItem Foreground="black"  FontSize="20" FontWeight="Light" Content="Logout" Height="53"/>
                         </ListView>
                     </StackPanel>
                 </Grid>
@@ -48,7 +70,7 @@
                     <RowDefinition Height="35"/>
                 </Grid.RowDefinitions>
                 <Rectangle Fill="white"/>
-                <TextBlock x:Name="txtTitleBlock"  Background="#DCEDC8" Style="{StaticResource MaterialDesignBody1TextBlock}"/>
+                <TextBlock x:Name="txtTitleBlock"  Background="#DCEDC8" Style="{StaticResource MaterialDesignBody1TextBlock}" Margin="0,0,0,264" Grid.RowSpan="2"/>
                 <Frame Grid.Row="1" x:Name="MainFrame" IsTabStop="False" NavigationUIVisibility="Hidden" Background="#DCEDC8"/>
             </Grid>
         </Grid>

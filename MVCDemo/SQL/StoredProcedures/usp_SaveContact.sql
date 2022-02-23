@@ -19,7 +19,7 @@ SET NOCOUNT OFF
 			BEGIN TRANSACTION 
 	
 				----ADD CREATEDBY and CREATEDATETIME(TIMESTAMP)
-					INSERT INTO Contacts(FirstName,MiddleName,LastName,Mobile,Gender)
+					INSERT INTO Contacts(FirstName,MiddleName,LastName,PhoneNumber,Gender)
 					values(@FirstName,@MiddleName,@LastName,@PhoneNumber,@Gender)
 
 			COMMIT TRANSACTION

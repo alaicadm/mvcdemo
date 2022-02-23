@@ -15,8 +15,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Margin="3 0 0 0">
-            <Button x:Name="btnNew"  Click="Button_Click" Background="#689F38" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Width="89">
+        <StackPanel Orientation="Horizontal" Margin="3,0,0,0">
+            <Button x:Name="btnNew"  Click="Button_Click" Background="#689F38" BorderThickness="0" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Width="89">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Add" Margin="0 5 0 0"/>
@@ -24,7 +24,7 @@
                     </StackPanel>
                 </Button.Content>
             </Button>
-            <Button x:Name="btnEdit" Click="Button_Click" Margin="3 0 0 0" Background="#689F38" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}">
+            <Button x:Name="btnEdit" Click="Button_Click" Margin="3 0 0 0" Background="#689F38" BorderThickness="0" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Edit" Margin="0 5 0 0"/>
@@ -32,7 +32,7 @@
                     </StackPanel>
                 </Button.Content>
             </Button>
-            <Button x:Name="btnDelete" Click="Button_Click" Margin="3 0 0 0" Background="#689F38" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}">
+            <Button x:Name="btnDelete" Click="Button_Click" Margin="3 0 0 0" Background="#689F38" BorderThickness="0" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="TrashCan" Margin="0 5 0 0"/>
@@ -40,7 +40,7 @@
                     </StackPanel>
                 </Button.Content>
             </Button>
-            <Button x:Name="btnView" Click="Button_Click" Margin="3 0 0 0" Background="#689F38" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}">
+            <Button x:Name="btnView" Click="Button_Click" Margin="3 0 0 0" Background="#689F38" BorderThickness="0" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Magnify" Margin="0 5 0 0"/>
@@ -48,12 +48,12 @@
                     </StackPanel>
                 </Button.Content>
             </Button>
-            
-            <TextBox x:Name="txtSearch" KeyDown="txtSearch_KeyDown" Width="200" Margin="3 0 0 0" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignTextBoxBase}" materialDesign:HintAssist.Hint="Search"/>
-            <Button x:Name="btnSearch" BorderThickness="0" Background="#AED581" Content="Search" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Click="Button_Click"/>
+
+            <TextBox x:Name="txtSearch" KeyDown="txtSearch_KeyDown" Width="194" Padding="10" Margin="3 0 0 2" Style="{StaticResource MaterialDesignTextBoxBase}" materialDesign:HintAssist.Hint="Search" Height="38"/>
+            <Button x:Name="btnSearch" BorderThickness="0" Background="#AED581" Content="Search" Foreground="white" Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}" Click="Button_Click" Width="97"/>
         </StackPanel>
 
-        <DataGrid  Margin="3,3,10,3" x:Name="dgContacts" AutoGenerateColumns="False" Grid.Row="1" Style="{StaticResource MaterialDesignDataGrid}" IsReadOnly="True" SelectionChanged="dgContacts_SelectionChanged">
+        <DataGrid  Margin="3,0,10,0" x:Name="dgContacts" AutoGenerateColumns="False" Grid.Row="1" Style="{StaticResource MaterialDesignDataGrid}" IsReadOnly="True" SelectionChanged="dgContacts_SelectionChanged" Height="309" VerticalAlignment="Center">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding UserId}"/>
                 <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
@@ -63,6 +63,6 @@
                 <DataGridTextColumn Header="Mobile" Binding="{Binding PhoneNumber}"/>
             </DataGrid.Columns>
         </DataGrid>
-        
+
     </Grid>
 </Page>
