@@ -1,4 +1,5 @@
 ﻿using MVCDemo.Controllers;
+using MVCDemo.Models;
 using MVCDemo.Views.Pages;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace MVCDemo.Views.Forms
         ContactsController controllerObj = new ContactsController();
         BulkInsertPage bulkInsertPage = new BulkInsertPage();
         DataTable dtContacts, dt, cdt;
-        string genderVal;
+        //string genderVal;
 
         //private int selectedRec;
         public ContactBulkEditWindow(DataTable cdt)
@@ -85,10 +86,7 @@ namespace MVCDemo.Views.Forms
             if (sender == btnSave)
             {
                 
-                foreach (DataRow row in dtContacts.Rows)
-                {
-                    row["Gender"] = genderVal;
-                }
+                
 
 
                 controllerObj.dtContactsForUpdating = dtContacts;
@@ -137,8 +135,11 @@ namespace MVCDemo.Views.Forms
 
         private void genderSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            genderVal = ((sender as ComboBox).SelectedItem as ComboBoxItem).Content as string;
            
+            string genderVal = ((sender as ComboBox).SelectedItem as ComboBoxItem).Content as string;
+            DataRowView row = dgContacts.CurrentItem as DataRowView;
+            row["Gender"] = genderVal;
+
 
         }
 
