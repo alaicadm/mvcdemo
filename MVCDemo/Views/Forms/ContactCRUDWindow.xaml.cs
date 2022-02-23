@@ -44,6 +44,7 @@ namespace MVCDemo.Views.Forms
                 txtMName.IsHitTestVisible = false;
                 txtLName.IsHitTestVisible = false;
                 txtGender.IsHitTestVisible = false;
+                //--isActiveBox.IsHitTestVisible=false;
                 //rdbFemale.IsHitTestVisible = false;
                 //rdbMale.IsHitTestVisible = false;
             }
@@ -56,6 +57,10 @@ namespace MVCDemo.Views.Forms
             txtGender.Text = controllerObj.Gender;
             //rdbMale.IsChecked = string.IsNullOrWhiteSpace(controllerObj.Gender) == true ? false : controllerObj.Gender == "Male" ? true : false;
             //rdbFemale.IsChecked = string.IsNullOrWhiteSpace(controllerObj.Gender) == true ? false : controllerObj.Gender == "Female" ? true : false;
+            //-- isActiveBox.IsEnabled = true;
+            //insert checkbox state here
+            
+            //--if (controllerObj.IsActive == 1) { isActiveBox.IsChecked = true; }
             txtContactNo.Text = controllerObj.Mobile;
                
         }
@@ -111,6 +116,8 @@ namespace MVCDemo.Views.Forms
             controllerObj.Gender = txtGender.Text;
             //if (Utils.Utils.ToBool(rdbMale.IsChecked.Value) == true) controllerObj.Gender = "Male";
             //if (Utils.Utils.ToBool(rdbFemale.IsChecked.Value) == true) controllerObj.Gender = "Female";
+            //--if (Utils.Utils.ToBool(isActiveBox.IsChecked.Value) == false) controllerObj.IsActive = 0;
+            //controllerObj.IsActive = 1;
             controllerObj.Mobile = txtContactNo.Text;
         }
         

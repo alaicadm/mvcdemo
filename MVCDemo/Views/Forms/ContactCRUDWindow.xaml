@@ -22,6 +22,7 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
             <Button x:Name="btnClose" Click="Button_Click" Width="50" HorizontalAlignment="Right" Background="{x:Null}" BorderThickness="0">
                 <Button.Content>
@@ -42,7 +43,8 @@
                 Content="Female" />
 
             </ComboBox>
-            <Button x:Name="btnSave" Grid.Row="6" Width="100" Click="Button_Click">
+           
+            <Button x:Name="btnSave" Grid.Row="7" Width="100" Click="Button_Click">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="ContentSave" Margin="0 6 0 0"/>

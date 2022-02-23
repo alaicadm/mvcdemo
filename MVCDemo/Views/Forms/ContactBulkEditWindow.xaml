@@ -49,7 +49,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Phone Number" Binding="{Binding Mobile}"/>
+                    <DataGridTextColumn Header="Mobile Number" Binding="{Binding Mobile}"/>
 
                     <DataGridTemplateColumn Header="Action">
                         <DataGridTemplateColumn.CellTemplate>

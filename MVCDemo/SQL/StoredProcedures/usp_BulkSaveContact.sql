@@ -30,7 +30,8 @@ SET XACT_ABORT ON --FORCE ROLLBACK IF RUNTIME ERROR OCCURS
 										MiddleName,
 										LastName,
 										Mobile,
-										Gender
+										Gender,
+										createdBy
 										
 									)
 					
@@ -39,7 +40,8 @@ SET XACT_ABORT ON --FORCE ROLLBACK IF RUNTIME ERROR OCCURS
 								MiddleName,
 								LastName,
 								Mobile,
-								Gender
+								Gender,
+								@CreatedBy
 
 						FROM @dtContactsForSaving
 

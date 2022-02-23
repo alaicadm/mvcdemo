@@ -61,6 +61,8 @@
                 <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
                 <DataGridTextColumn Header="Gender" Binding="{Binding Gender}"/>
                 <DataGridTextColumn Header="Mobile" Binding="{Binding Mobile}"/>
+                
+                
             </DataGrid.Columns>
         </DataGrid>
         

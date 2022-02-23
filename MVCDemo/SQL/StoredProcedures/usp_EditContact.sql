@@ -27,7 +27,7 @@ SET NOCOUNT OFF
 					LastName	= @LastName,
 					Mobile		= @Mobile,
 					Gender		= @Gender,
-					updatedDateTime = GETDATE(),
+					UpdatedDateTime = GETDATE(),
 					updatedBy	= @UserName
 					where UserId	= @UserId
 

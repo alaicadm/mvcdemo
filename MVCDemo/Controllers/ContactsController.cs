@@ -33,6 +33,8 @@ namespace MVCDemo.Controllers
                 cmd.Parameters.AddWithValue("@LastName", data.LastName);
                 cmd.Parameters.AddWithValue("@Mobile", data.Mobile);
                 cmd.Parameters.AddWithValue("@Gender", data.Gender);
+                //cmd.Parameters.AddWithValue("@IsActive", data.IsActive);
+
                 MessageBox.Show("Successfully Saved!!!!!!!!");
                 shouldClose = true;
             }
@@ -59,6 +61,7 @@ namespace MVCDemo.Controllers
                 cmd.Parameters.AddWithValue("@LastName", data.LastName);
                 cmd.Parameters.AddWithValue("@Mobile", data.Mobile);
                 cmd.Parameters.AddWithValue("@Gender", data.Gender);
+              
                 MessageBox.Show("Successfully Saved!!!!!!");
                 shouldClose = true;
             }
@@ -110,6 +113,7 @@ namespace MVCDemo.Controllers
             dt.Columns.Add("LastName", typeof(string));
             dt.Columns.Add("Mobile", typeof(string));
             dt.Columns.Add("Gender", typeof(string));
+           
             return dt;
         }
 
@@ -160,8 +164,8 @@ namespace MVCDemo.Controllers
         public bool BulkSave(ContactsController data)
         {
             cmd = new SqlCommand("usp_BulkSaveContact");
-            /*cmd.Parameters.AddWithValue("@UserId", data.UserId);
-            cmd.Parameters.AddWithValue("@UserName", Properties.Settings.Default.DBConnUsername);*/
+            //cmd.Parameters.AddWithValue("@UserId", data.UserId);
+            cmd.Parameters.AddWithValue("@CreatedBy", Properties.Settings.Default.DBConnUsername);
             cmd.Parameters.AddWithValue("@dtContactsForSaving", data.dtContactsForSaving);
             return SQLQueries.SqlExecNQInsert(cmd);
             //you can add prompt here or insinde SQLExecNQInsert

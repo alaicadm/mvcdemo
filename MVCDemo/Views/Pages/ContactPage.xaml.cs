@@ -28,7 +28,7 @@ namespace MVCDemo.Views.Pages
         {
             InitializeComponent();
             Search();
-           
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -107,5 +107,11 @@ namespace MVCDemo.Views.Pages
                 controllerObj.Mobile = drv["Mobile"].ToString();
             }
         }
+
+       /* private void isActiveRes(object sender, RoutedEventArgs e)
+        {
+            DataRow row  = dgContacts.SelectedItem as DataRow;
+           
+        }*/
     }
 }

@@ -23,7 +23,7 @@
                     <RowDefinition Height="100"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Image Grid.ColumnSpan="2"  Height="75" Source="/phonebookicon.png" />
+                <Image Grid.ColumnSpan="2"  Height="75" Source="/phonebookicon.png"  />
                 
 
                 <Grid Grid.Row="1" Grid.ColumnSpan="2">
@@ -59,11 +59,9 @@
                             <ColumnDefinition Width="120"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock x:Name="txtTitleBlock" Grid.Column="0" FontWeight="Bold" Margin="10 0 0 0" Foreground="White" Text="HOME" Style="{StaticResource MaterialDesignBody1TextBlock}"/>
-                        <materialDesign:PackIcon Grid.Column="1" Kind="Connection" Margin="0 10 0 0" Foreground="White"/>
-                        <TextBlock x:Name="txtServerBlock" Grid.Column="2" FontWeight="Normal" Margin="10 0 0 0" Foreground="White" Text="" Style="{StaticResource MaterialDesignBody1TextBlock}"/>
-
-                        <materialDesign:PackIcon Grid.Column="3" Kind="Database" Margin="0 10 0 0" Foreground="White"/>
-                        <TextBlock x:Name="txtDBBlock" Grid.Column="4" FontWeight="Normal" Margin="10 0 0 0" Foreground="White" Text="" Style="{StaticResource MaterialDesignBody1TextBlock}"/>
+                        
+                        <materialDesign:PackIcon Grid.Column="3" Kind="Circle" Margin="0 10 0 0" Foreground="LawnGreen"/>
+                        <TextBlock x:Name="txtUserNameBlock" Grid.Column="4" FontWeight="Normal" Margin="10 0 0 0" Foreground="White" Text="" Style="{StaticResource MaterialDesignBody1TextBlock}"/>
 
                     </Grid>
                 </StackPanel>

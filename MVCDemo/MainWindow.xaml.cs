@@ -35,8 +35,8 @@ namespace MVCDemo
         public MainWindow()
         {
             InitializeComponent();
-            txtDBBlock.Text = dbConn.DataBase;
-            txtServerBlock.Text = dbConn.Server;
+            //txtDBBlock.Text = dbConn.DataBase;
+            txtUserNameBlock.Text = dbConn.UserName;
             //dt = contactsObj.GetContacts("");
         }
 
