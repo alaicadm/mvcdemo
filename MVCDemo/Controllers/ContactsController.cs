@@ -33,7 +33,7 @@ namespace MVCDemo.Controllers
                 cmd.Parameters.AddWithValue("@LastName", data.LastName);
                 cmd.Parameters.AddWithValue("@Mobile", data.Mobile);
                 cmd.Parameters.AddWithValue("@Gender", data.Gender);
-                //cmd.Parameters.AddWithValue("@IsActive", data.IsActive);
+                cmd.Parameters.AddWithValue("@IsActive", data.IsActive);
 
                 MessageBox.Show("Successfully Saved!!!!!!!!");
                 shouldClose = true;
@@ -61,7 +61,9 @@ namespace MVCDemo.Controllers
                 cmd.Parameters.AddWithValue("@LastName", data.LastName);
                 cmd.Parameters.AddWithValue("@Mobile", data.Mobile);
                 cmd.Parameters.AddWithValue("@Gender", data.Gender);
-              
+                cmd.Parameters.AddWithValue("@IsActive", data.IsActive);
+
+
                 MessageBox.Show("Successfully Saved!!!!!!");
                 shouldClose = true;
             }

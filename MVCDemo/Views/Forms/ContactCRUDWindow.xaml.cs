@@ -44,7 +44,7 @@ namespace MVCDemo.Views.Forms
                 txtMName.IsHitTestVisible = false;
                 txtLName.IsHitTestVisible = false;
                 txtGender.IsHitTestVisible = false;
-                //--isActiveBox.IsHitTestVisible=false;
+                //isActiveBox.IsHitTestVisible = false;
                 //rdbFemale.IsHitTestVisible = false;
                 //rdbMale.IsHitTestVisible = false;
             }
@@ -57,10 +57,24 @@ namespace MVCDemo.Views.Forms
             txtGender.Text = controllerObj.Gender;
             //rdbMale.IsChecked = string.IsNullOrWhiteSpace(controllerObj.Gender) == true ? false : controllerObj.Gender == "Male" ? true : false;
             //rdbFemale.IsChecked = string.IsNullOrWhiteSpace(controllerObj.Gender) == true ? false : controllerObj.Gender == "Female" ? true : false;
-            //-- isActiveBox.IsEnabled = true;
+            isActiveBox.IsEnabled = true;
             //insert checkbox state here
-            
-            //--if (controllerObj.IsActive == 1) { isActiveBox.IsChecked = true; }
+
+            //------------------review this line------------------
+            //if (controllerObj.IsActive == 1) { isActiveBox.IsChecked = true; }
+            //else if (controllerObj.IsActive == 0) { isActiveBox.IsChecked = false; }
+
+
+
+            //controllerObj.IsActive = Utils.Utils.ToBool(isActiveBox.IsChecked.Value) == true ? 1 : 0;
+            //MessageBox.Show("controllerobj.isactive: "+controllerObj.IsActive.ToString());
+
+            //------------------review this line------------------
+            //if (isActiveBox.IsChecked == true) { controllerObj.IsActive = 1; }
+            //not working
+            //isActiveBox.IsChecked = controllerObj.IsActive == 1 ? true : false;
+            //MessageBox.Show("isactivebox.ischecked: " + isActiveBox.IsChecked.ToString());
+
             txtContactNo.Text = controllerObj.Mobile;
                
         }
@@ -116,7 +130,11 @@ namespace MVCDemo.Views.Forms
             controllerObj.Gender = txtGender.Text;
             //if (Utils.Utils.ToBool(rdbMale.IsChecked.Value) == true) controllerObj.Gender = "Male";
             //if (Utils.Utils.ToBool(rdbFemale.IsChecked.Value) == true) controllerObj.Gender = "Female";
-            //--if (Utils.Utils.ToBool(isActiveBox.IsChecked.Value) == false) controllerObj.IsActive = 0;
+            //if (Utils.Utils.ToBool(isActiveBox.IsChecked.Value) == false) controllerObj.IsActive = 0;
+          
+            controllerObj.IsActive = Utils.Utils.ToBool(isActiveBox.IsChecked.Value) == true ? 1 : 0;
+            //MessageBox.Show(controllerObj.IsActive.ToString());
+
             //controllerObj.IsActive = 1;
             controllerObj.Mobile = txtContactNo.Text;
         }

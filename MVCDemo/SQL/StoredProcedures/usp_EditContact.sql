@@ -10,7 +10,9 @@ CREATE PROCEDURE	usp_EditContact
 	@LastName		nvarchar(255),
 	@Mobile			nvarchar(255),
 	@Gender			nvarchar(10),
+	@IsActive		bit,
 	@UserName		nvarchar(100)
+	
 )
 AS
 SET NOCOUNT OFF
@@ -27,6 +29,7 @@ SET NOCOUNT OFF
 					LastName	= @LastName,
 					Mobile		= @Mobile,
 					Gender		= @Gender,
+					isActive	= @IsActive,
 					UpdatedDateTime = GETDATE(),
 					updatedBy	= @UserName
 					where UserId	= @UserId

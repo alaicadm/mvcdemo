@@ -43,7 +43,10 @@
                 Content="Female" />
 
             </ComboBox>
-           
+
+            <CheckBox Grid.Row="6" x:Name="isActiveBox" IsChecked="True" IsEnabled="False" Padding="10 0" Margin="10 0 10 0" Content="Active"></CheckBox>
+
+
             <Button x:Name="btnSave" Grid.Row="7" Width="100" Click="Button_Click">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">

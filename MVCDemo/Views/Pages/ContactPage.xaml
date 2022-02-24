@@ -61,7 +61,17 @@
                 <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
                 <DataGridTextColumn Header="Gender" Binding="{Binding Gender}"/>
                 <DataGridTextColumn Header="Mobile" Binding="{Binding Mobile}"/>
-                
+                <DataGridTemplateColumn Header="Active">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsEnabled="False"
+                                x:Name="isActiveCheckBox" IsChecked="{Binding IsActive}"
+                                IsThreeState="False"
+                                Margin="0 8 0 0"
+                                 />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 
             </DataGrid.Columns>
         </DataGrid>
